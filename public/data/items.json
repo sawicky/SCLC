@@ -6718,7 +6718,7 @@
     },
     {
       "id": "ESPR_BallisticCannon_S1",
-      "name": "Esperia S1 Ballistic Cannon",
+      "name": "Deadbolt I",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S1",
@@ -6743,7 +6743,7 @@
     },
     {
       "id": "GATS_BallisticCannon_S1",
-      "name": "Gallenson S1 Ballistic Cannon",
+      "name": "Tarantula GT-870 Mk1",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S1",
@@ -6768,7 +6768,7 @@
     },
     {
       "id": "KBAR_BallisticCannon_S1",
-      "name": "KnightBridge S1 Ballistic Cannon",
+      "name": "9-Series Longsword",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S1",
@@ -6793,7 +6793,7 @@
     },
     {
       "id": "BEHR_BallisticCannon_VNG_S2",
-      "name": "Behring S2 Ballistic Cannon",
+      "name": "CVSA",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S2",
@@ -6818,7 +6818,7 @@
     },
     {
       "id": "ESPR_BallisticCannon_S2",
-      "name": "Esperia S2 Ballistic Cannon",
+      "name": "Deadbolt II",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S2",
@@ -6843,7 +6843,7 @@
     },
     {
       "id": "GATS_BallisticCannon_S2",
-      "name": "Gallenson S2 Ballistic Cannon",
+      "name": "Tarantula GT-870 Mk2",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S2",
@@ -6868,7 +6868,7 @@
     },
     {
       "id": "KBAR_BallisticCannon_S2",
-      "name": "KnightBridge S2 Ballistic Cannon",
+      "name": "10-Series Greatsword",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S2",
@@ -6893,7 +6893,7 @@
     },
     {
       "id": "ESPR_BallisticCannon_S3",
-      "name": "Esperia S3 Ballistic Cannon",
+      "name": "Deadbolt III",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S3",
@@ -6918,7 +6918,7 @@
     },
     {
       "id": "GATS_BallisticCannon_S3",
-      "name": "Gallenson S3 Ballistic Cannon",
+      "name": "Tarantula GT-870 Mk3",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S3",
@@ -6943,7 +6943,7 @@
     },
     {
       "id": "KBAR_BallisticCannon_S3",
-      "name": "KnightBridge S3 Ballistic Cannon",
+      "name": "11-Series Broadsword",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S3",
@@ -6968,7 +6968,7 @@
     },
     {
       "id": "BEHR_BallisticCannon_S4",
-      "name": "Behring S4 Ballistic Cannon",
+      "name": "C-788",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S4",
@@ -6993,7 +6993,7 @@
     },
     {
       "id": "ESPR_BallisticCannon_S4",
-      "name": "Esperia S4 Ballistic Cannon",
+      "name": "Deadbolt IV",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S4",
@@ -7018,7 +7018,7 @@
     },
     {
       "id": "ESPR_BallisticCannon_S5",
-      "name": "Esperia S5 Ballistic Cannon",
+      "name": "Deadbolt V",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S5",
@@ -7043,7 +7043,7 @@
     },
     {
       "id": "HRST_Nova_BallisticCannon_S5",
-      "name": "Hurston S5 Ballistic Cannon",
+      "name": "Slayer",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S5",
@@ -7068,7 +7068,7 @@
     },
     {
       "id": "RSI_BallisticCannon_Meteor_Bespoke",
-      "name": "Meteor",
+      "name": "Leonids",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S5",
@@ -7093,7 +7093,7 @@
     },
     {
       "id": "RSI_Bespoke_BallisticCannon_A",
-      "name": "A",
+      "name": "Maris Cannon",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S6",
@@ -7118,7 +7118,7 @@
     },
     {
       "id": "ESPR_BallisticCannon_S6",
-      "name": "Esperia S6 Ballistic Cannon",
+      "name": "Deadbolt VI",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S6",
@@ -7143,7 +7143,7 @@
     },
     {
       "id": "HRST_BallisticCannon_S7",
-      "name": "Hurston S7 Ballistic Cannon",
+      "name": "Conqueror-7",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S7",
@@ -7168,7 +7168,7 @@
     },
     {
       "id": "BEHR_BallisticCannon_S7_Tiburon",
-      "name": "Tiburon",
+      "name": "C-07T",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S7",
@@ -7193,7 +7193,7 @@
     },
     {
       "id": "RSI_BallisticCannon_S8",
-      "name": "RSI S8 Ballistic Cannon",
+      "name": "Medusa",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S8",
@@ -7218,7 +7218,7 @@
     },
     {
       "id": "GATS_BallisticGatling_S1",
-      "name": "Gallenson S1 Ballistic Gatling",
+      "name": "GT-210 YellowJacket",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S1",
@@ -7243,7 +7243,7 @@
     },
     {
       "id": "BEHR_BallisticGatling_PDC_S1",
-      "name": "PDC",
+      "name": "MRX Torrent",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S1",
@@ -7268,7 +7268,7 @@
     },
     {
       "id": "GATS_BallisticGatling_S2",
-      "name": "Gallenson S2 Ballistic Gatling",
+      "name": "Scorpion GT-215",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S2",
@@ -7293,7 +7293,7 @@
     },
     {
       "id": "KRIG_BallisticGatling_S2",
-      "name": "Kruger S2 Ballistic Gatling",
+      "name": "Tigerstrike",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S2",
@@ -7318,7 +7318,7 @@
     },
     {
       "id": "GATS_BallisticGatling_S3",
-      "name": "Gallenson S3 Ballistic Gatling",
+      "name": "Mantis GT-220",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S3",
@@ -7343,7 +7343,7 @@
     },
     {
       "id": "APAR_BallisticGatling_S4",
-      "name": "Apocalypse S4 Ballistic Gatling",
+      "name": "Revenant",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S4",
@@ -7368,7 +7368,7 @@
     },
     {
       "id": "BEHR_BallisticGatling_S4",
-      "name": "Behring S4 Ballistic Gatling",
+      "name": "AD4B",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S4",
@@ -7393,7 +7393,7 @@
     },
     {
       "id": "KRIG_Wolf_BallisticGatling_S4",
-      "name": "Kruger S4 Ballistic Gatling",
+      "name": "Relentless L-21",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S4",
@@ -7418,7 +7418,7 @@
     },
     {
       "id": "GLSN_BallisticGatling_S4",
-      "name": "Unknown S4 Ballistic Gatling",
+      "name": "Breakneck",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S4",
@@ -7443,7 +7443,7 @@
     },
     {
       "id": "BEHR_BallisticGatling_S5",
-      "name": "Behring S5 Ballistic Gatling",
+      "name": "AD5B",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S5",
@@ -7468,7 +7468,7 @@
     },
     {
       "id": "BEHR_BallisticGatling_Hornet_Bespoke",
-      "name": "Hornet",
+      "name": "Behring TMSB-5",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S5",
@@ -7493,7 +7493,7 @@
     },
     {
       "id": "BEHR_BallisticGatling_NOVA_S5",
-      "name": "NOVA",
+      "name": "NV57",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S5",
@@ -7518,7 +7518,7 @@
     },
     {
       "id": "APAR_BallisticGatling_S6",
-      "name": "Apocalypse S6 Ballistic Gatling",
+      "name": "Draugar",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S6",
@@ -7543,7 +7543,7 @@
     },
     {
       "id": "BEHR_BallisticGatling_S6",
-      "name": "Behring S6 Ballistic Gatling",
+      "name": "AD6B",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S6",
@@ -7593,7 +7593,7 @@
     },
     {
       "id": "BEHR_BallisticRepeater_S1",
-      "name": "Behring S1 Ballistic Repeater",
+      "name": "SW16BR1 Buzzsaw",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Repeaters",
       "size": "S1",
@@ -7618,7 +7618,7 @@
     },
     {
       "id": "BEHR_BallisticRepeater_S2",
-      "name": "Behring S2 Ballistic Repeater",
+      "name": "SW16BR2 Sawbuck",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Repeaters",
       "size": "S2",
@@ -7643,7 +7643,7 @@
     },
     {
       "id": "BEHR_BallisticRepeater_VNG_S2",
-      "name": "Behring S2 Ballistic Repeater",
+      "name": "BRVS",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Repeaters",
       "size": "S2",
@@ -7668,7 +7668,7 @@
     },
     {
       "id": "BEHR_BallisticRepeater_S3",
-      "name": "Behring S3 Ballistic Repeater",
+      "name": "SW16BR3 Shredder",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Repeaters",
       "size": "S3",
@@ -7693,7 +7693,7 @@
     },
     {
       "id": "APAR_BallisticScatterGun_S1",
-      "name": "Apocalypse S1 Ballistic Scatter Gun",
+      "name": "Havoc",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Scatterguns",
       "size": "S1",
@@ -7718,7 +7718,7 @@
     },
     {
       "id": "APAR_BallisticScatterGun_S2",
-      "name": "Apocalypse S2 Ballistic Scatter Gun",
+      "name": "Hellion",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Scatterguns",
       "size": "S2",
@@ -7743,7 +7743,7 @@
     },
     {
       "id": "APAR_BallisticScatterGun_S3",
-      "name": "Apocalypse S3 Ballistic Scatter Gun",
+      "name": "Predator",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Scatterguns",
       "size": "S3",
@@ -7768,7 +7768,7 @@
     },
     {
       "id": "BOMB_S10_FSKI_Colossus",
-      "name": "Colossus Bomb [S10]",
+      "name": "Colossus",
       "category": "Ship Weapons",
       "subcategory": "Bombs",
       "size": "S10",
@@ -7783,7 +7783,7 @@
     },
     {
       "id": "BOMB_S03_FSKI_Thunderball",
-      "name": "Thunderball Bomb [S3]",
+      "name": "Thunderball",
       "category": "Ship Weapons",
       "subcategory": "Bombs",
       "size": "S3",
@@ -7798,7 +7798,7 @@
     },
     {
       "id": "BOMB_S05_FSKI_Stormburst",
-      "name": "Stormburst Bomb [S5]",
+      "name": "Stormburst",
       "category": "Ship Weapons",
       "subcategory": "Bombs",
       "size": "S5",
@@ -7813,7 +7813,7 @@
     },
     {
       "id": "JOKR_DistortionCannon_S1",
-      "name": "Joker S1 Distortion Cannon",
+      "name": "Suckerpunch",
       "category": "Ship Weapons",
       "subcategory": "Distortion Cannons",
       "size": "S1",
@@ -7841,7 +7841,7 @@
     },
     {
       "id": "BEHR_DistortionCannon_VNG_S2",
-      "name": "Behring S2 Distortion Cannon",
+      "name": "EVSD",
       "category": "Ship Weapons",
       "subcategory": "Distortion Cannons",
       "size": "S2",
@@ -7869,7 +7869,7 @@
     },
     {
       "id": "JOKR_DistortionCannon_S2",
-      "name": "Joker S2 Distortion Cannon",
+      "name": "Suckerpunch",
       "category": "Ship Weapons",
       "subcategory": "Distortion Cannons",
       "size": "S2",
@@ -7897,7 +7897,7 @@
     },
     {
       "id": "JOKR_DistortionCannon_S3",
-      "name": "Joker S3 Distortion Cannon",
+      "name": "Suckerpunch",
       "category": "Ship Weapons",
       "subcategory": "Distortion Cannons",
       "size": "S3",
@@ -7925,7 +7925,7 @@
     },
     {
       "id": "ASAD_DistortionRepeater_S1",
-      "name": "Associated S1 Distortion Repeater",
+      "name": "DR Model-XJ1",
       "category": "Ship Weapons",
       "subcategory": "Distortion Repeaters",
       "size": "S1",
@@ -7953,7 +7953,7 @@
     },
     {
       "id": "ASAD_DistortionRepeater_S2",
-      "name": "Associated S2 Distortion Repeater",
+      "name": "DR Model-XJ2",
       "category": "Ship Weapons",
       "subcategory": "Distortion Repeaters",
       "size": "S2",
@@ -7981,7 +7981,7 @@
     },
     {
       "id": "BEHR_DistortionRepeater_VNG_S2",
-      "name": "Behring S2 Distortion Repeater",
+      "name": "ATVS",
       "category": "Ship Weapons",
       "subcategory": "Distortion Repeaters",
       "size": "S2",
@@ -8009,7 +8009,7 @@
     },
     {
       "id": "ASAD_DistortionRepeater_S3",
-      "name": "Associated S3 Distortion Repeater",
+      "name": "DR Model-XJ3",
       "category": "Ship Weapons",
       "subcategory": "Distortion Repeaters",
       "size": "S3",
@@ -8037,7 +8037,7 @@
     },
     {
       "id": "PRAR_DistortionScatterGun_S4",
-      "name": "Preacher S4 Distortion Scatter Gun",
+      "name": "Salvation",
       "category": "Ship Weapons",
       "subcategory": "Distortion Scatterguns",
       "size": "S4",
@@ -8065,7 +8065,7 @@
     },
     {
       "id": "PRAR_DistortionScatterGun_S5",
-      "name": "Preacher S5 Distortion Scatter Gun",
+      "name": "Absolution",
       "category": "Ship Weapons",
       "subcategory": "Distortion Scatterguns",
       "size": "S5",
@@ -8093,7 +8093,7 @@
     },
     {
       "id": "PRAR_DistortionScatterGun_S6",
-      "name": "Preacher S6 Distortion Scatter Gun",
+      "name": "Condemnation",
       "category": "Ship Weapons",
       "subcategory": "Distortion Scatterguns",
       "size": "S6",
@@ -8121,7 +8121,7 @@
     },
     {
       "id": "AEGS_EMP_Device",
-      "name": "Device",
+      "name": "REP-8",
       "category": "Ship Weapons",
       "subcategory": "EMP Generators",
       "manufacturer": "Behring",
@@ -8138,7 +8138,7 @@
     },
     {
       "id": "MXOX_EMP_Device",
-      "name": "Device",
+      "name": "TroMag",
       "category": "Ship Weapons",
       "subcategory": "EMP Generators",
       "size": "S1",
@@ -8174,7 +8174,7 @@
     },
     {
       "id": "AEGS_EMP_Sentinel_S4",
-      "name": "Sentinel",
+      "name": "REP-VS",
       "category": "Ship Weapons",
       "subcategory": "EMP Generators",
       "size": "S4",
@@ -8192,7 +8192,7 @@
     },
     {
       "id": "GMISL_S01_IR_BEHR_Marksman",
-      "name": "Marksman I-G Missile [IR]",
+      "name": "Marksman",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S1",
@@ -8213,7 +8213,7 @@
     },
     {
       "id": "GMISL_S01_EM_BEHR_Pioneer",
-      "name": "Pioneer I-G Missile [EM]",
+      "name": "Pioneer",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S1",
@@ -8234,7 +8234,7 @@
     },
     {
       "id": "GMISL_S01_CS_FSKI_Spark",
-      "name": "Spark I-G Missile [CS]",
+      "name": "Spark",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S1",
@@ -8255,7 +8255,7 @@
     },
     {
       "id": "GMISL_S01_EM_THCN_TaskForce",
-      "name": "TaskForce I-G Missile [EM]",
+      "name": "TaskForce",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S1",
@@ -8276,7 +8276,7 @@
     },
     {
       "id": "GMISL_S02_EM_TALN_Dominator",
-      "name": "Dominator II-G Missile [EM]",
+      "name": "Dominator",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S2",
@@ -8297,7 +8297,7 @@
     },
     {
       "id": "GMISL_S02_IR_FSKI_Ignite",
-      "name": "Ignite II-G Missile [IR]",
+      "name": "Ignite",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S2",
@@ -8318,7 +8318,7 @@
     },
     {
       "id": "GMISL_S02_CS_THCN_StrikeForce",
-      "name": "StrikeForce II-G Missile [CS]",
+      "name": "StrikeForce",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S2",
@@ -8339,7 +8339,7 @@
     },
     {
       "id": "GMISL_S02_CS_FSKI_Tempest",
-      "name": "Tempest II-G Missile [CS]",
+      "name": "Tempest",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S2",
@@ -8360,7 +8360,7 @@
     },
     {
       "id": "GMISL_S03_EM_FSKI_Thunderbolt",
-      "name": "Thunderbolt III-G Missile [CS]",
+      "name": "Thunderbolt",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S3",
@@ -8381,7 +8381,7 @@
     },
     {
       "id": "GMISL_S03_IR_NOVP_Viper",
-      "name": "Viper III-G Missile [IR]",
+      "name": "Viper",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S3",
@@ -8402,7 +8402,7 @@
     },
     {
       "id": "GMISL_S04_CS_TALN_Assailant",
-      "name": "Assailant IV-G Missile [CS]",
+      "name": "Assailant",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S4",
@@ -8423,7 +8423,7 @@
     },
     {
       "id": "GMISL_S04_IR_BEHR_Pathfinder",
-      "name": "Pathfinder IV-G Missile [IR]",
+      "name": "Pathfinder",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S4",
@@ -8444,7 +8444,7 @@
     },
     {
       "id": "GMISL_S05_EM_TALN_Reaper",
-      "name": "Reaper V-G Missile [EM]",
+      "name": "Reaper",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S5",
@@ -8465,7 +8465,7 @@
     },
     {
       "id": "GMISL_S05_EM_TALN_Scimitar",
-      "name": "Scimitar V-G Missile [EM]",
+      "name": "Scimitar",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S5",
@@ -8486,7 +8486,7 @@
     },
     {
       "id": "GMISL_S05_CS_TALN_Stalker",
-      "name": "Stalker V-G Missile [CS]",
+      "name": "Stalker",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S5",
@@ -8507,7 +8507,7 @@
     },
     {
       "id": "GMISL_S05_IR_TALN_Valkyrie",
-      "name": "Valkyrie V-G Missile [IR]",
+      "name": "Valkyrie",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S5",
@@ -8528,7 +8528,7 @@
     },
     {
       "id": "GMISL_S07_IR_TALN_Hellion",
-      "name": "Hellion VII-G Missile [IR]",
+      "name": "Hellion",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S7",
@@ -8549,7 +8549,7 @@
     },
     {
       "id": "GMISL_S09_CS_TALN_Argos",
-      "name": "Argos IX-G Torpedo [CS]",
+      "name": "Argos",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S9",
@@ -8570,7 +8570,7 @@
     },
     {
       "id": "GMISL_S09_EM_TALN_Seeker",
-      "name": "Seeker IX-G Torpedo [EM]",
+      "name": "Seeker",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S9",
@@ -8591,7 +8591,7 @@
     },
     {
       "id": "GMISL_S09_IR_TALN_Typhoon",
-      "name": "Typhoon IX-G Torpedo [IR]",
+      "name": "Typhoon",
       "category": "Ship Weapons",
       "subcategory": "Ground Missiles",
       "size": "S9",
@@ -8612,7 +8612,7 @@
     },
     {
       "id": "HRST_LaserBeam_S10_Bespoke",
-      "name": "HRST",
+      "name": "Exodus-10 Laser Beam",
       "category": "Ship Weapons",
       "subcategory": "Laser Beams",
       "size": "S10",
@@ -8637,7 +8637,7 @@
     },
     {
       "id": "HRST_Tiburon_S10_laserbeam",
-      "name": "Hurston S10 Tiburon",
+      "name": "Supremacy-10T",
       "category": "Ship Weapons",
       "subcategory": "Laser Beams",
       "size": "S10",
@@ -8663,7 +8663,7 @@
     },
     {
       "id": "VNCL_Gen2_LaserBeam_S9",
-      "name": "VNCL",
+      "name": "IGNITER",
       "category": "Ship Weapons",
       "subcategory": "Laser Beams",
       "size": "S9",
@@ -8686,7 +8686,7 @@
     },
     {
       "id": "AMRS_LaserCannon_S1",
-      "name": "Amon S1 Laser Cannon",
+      "name": "Omnisky III",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S1",
@@ -8714,7 +8714,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S1",
-      "name": "Behring S1 Laser Cannon",
+      "name": "M3A",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S1",
@@ -8742,7 +8742,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S1_CleanAir",
-      "name": "Clean Air",
+      "name": "M3A Clean Air",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S1",
@@ -8770,7 +8770,7 @@
     },
     {
       "id": "ESPR_LaserCannon_S1",
-      "name": "Esperia S1 Laser Cannon",
+      "name": "Lightstrike I",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S1",
@@ -8798,7 +8798,7 @@
     },
     {
       "id": "KRON_LaserCannon_S1",
-      "name": "Kroneg S1 Laser Cannon",
+      "name": "FL-11",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S1",
@@ -8826,7 +8826,7 @@
     },
     {
       "id": "BEHR_LaserRepeater_PDC_S1",
-      "name": "PDC",
+      "name": "M2C Swarm",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S1",
@@ -8854,7 +8854,7 @@
     },
     {
       "id": "AMRS_LaserCannon_S2",
-      "name": "Amon S2 Laser Cannon",
+      "name": "Omnisky VI",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S2",
@@ -8882,7 +8882,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S2",
-      "name": "Behring S2 Laser Cannon",
+      "name": "M4A",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S2",
@@ -8910,7 +8910,7 @@
     },
     {
       "id": "BEHR_LaserCannon_VNG_S2",
-      "name": "Behring S2 Laser Cannon",
+      "name": "MVSA",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S2",
@@ -8938,7 +8938,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S2_CleanAir",
-      "name": "Clean Air",
+      "name": "M4A Clean Air",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S2",
@@ -8966,7 +8966,7 @@
     },
     {
       "id": "ESPR_LaserCannon_S2",
-      "name": "Esperia S2 Laser Cannon",
+      "name": "Lightstrike II",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S2",
@@ -8994,7 +8994,7 @@
     },
     {
       "id": "KRON_LaserCannon_S2",
-      "name": "Kroneg S2 Laser Cannon",
+      "name": "FL-22",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S2",
@@ -9022,7 +9022,7 @@
     },
     {
       "id": "AMRS_LaserCannon_S3",
-      "name": "Amon S3 Laser Cannon",
+      "name": "Omnisky IX",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S3",
@@ -9050,7 +9050,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S3",
-      "name": "Behring S3 Laser Cannon",
+      "name": "M5A",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S3",
@@ -9078,7 +9078,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S3_CleanAir",
-      "name": "Clean Air",
+      "name": "M5A Clean Air",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S3",
@@ -9106,7 +9106,7 @@
     },
     {
       "id": "ESPR_LaserCannon_S3",
-      "name": "Esperia S3 Laser Cannon",
+      "name": "Lightstrike III",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S3",
@@ -9134,7 +9134,7 @@
     },
     {
       "id": "KRON_LaserCannon_S3",
-      "name": "Kroneg S3 Laser Cannon",
+      "name": "FL-33",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S3",
@@ -9162,7 +9162,7 @@
     },
     {
       "id": "KRIG_LaserCannon_S3",
-      "name": "Kruger S3 Laser Cannon",
+      "name": "Quarreler",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S3",
@@ -9190,7 +9190,7 @@
     },
     {
       "id": "AMRS_LaserCannon_S4",
-      "name": "Amon S4 Laser Cannon",
+      "name": "Omnisky XII",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S4",
@@ -9218,7 +9218,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S4",
-      "name": "Behring S4 Laser Cannon",
+      "name": "M6A",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S4",
@@ -9246,7 +9246,7 @@
     },
     {
       "id": "ESPR_LaserCannon_S4",
-      "name": "Esperia S4 Laser Cannon",
+      "name": "Lightstrike IV",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S4",
@@ -9274,7 +9274,7 @@
     },
     {
       "id": "AMRS_LaserCannon_S5",
-      "name": "Amon S5 Laser Cannon",
+      "name": "Omnisky XV",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S5",
@@ -9302,7 +9302,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S5",
-      "name": "Behring S5 Laser Cannon",
+      "name": "M7A",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S5",
@@ -9330,7 +9330,7 @@
     },
     {
       "id": "ESPR_LaserCannon_S5",
-      "name": "Esperia S5 Laser Cannon",
+      "name": "Lightstrike V",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S5",
@@ -9358,7 +9358,7 @@
     },
     {
       "id": "AMRS_LaserCannon_S6",
-      "name": "Amon S6 Laser Cannon",
+      "name": "Omnisky XVIII",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S6",
@@ -9386,7 +9386,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S6",
-      "name": "Behring S6 Laser Cannon",
+      "name": "M8A",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S6",
@@ -9414,7 +9414,7 @@
     },
     {
       "id": "ESPR_LaserCannon_S6",
-      "name": "Esperia S6 Laser Cannon",
+      "name": "Lightstrike VI",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S6",
@@ -9442,7 +9442,7 @@
     },
     {
       "id": "BEHR_LaserCannon_S7",
-      "name": "Behring S7 Laser Cannon",
+      "name": "M9A",
       "category": "Ship Weapons",
       "subcategory": "Laser Cannons",
       "size": "S7",
@@ -9495,7 +9495,7 @@
     },
     {
       "id": "TOAG_LaserGatling_S2",
-      "name": "Torral S2 Laser Gatling",
+      "name": "Thlilye",
       "category": "Ship Weapons",
       "subcategory": "Laser Gatlings",
       "size": "S2",
@@ -9523,7 +9523,7 @@
     },
     {
       "id": "HRST_Pyro_LaserRepeater_S1",
-      "name": "Hurston S1 Laser Repeater",
+      "name": "Ardor-1",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S1",
@@ -9551,7 +9551,7 @@
     },
     {
       "id": "HRST_LaserRepeater_S1",
-      "name": "Hurston S1 Laser Repeater",
+      "name": "Attrition-1",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S1",
@@ -9579,7 +9579,7 @@
     },
     {
       "id": "KLWE_LaserRepeater_S1",
-      "name": "Klaus S1 Laser Repeater",
+      "name": "CF-117 Bulldog",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S1",
@@ -9607,7 +9607,7 @@
     },
     {
       "id": "VNCL_LaserCannon_S1",
-      "name": "Vanduul S1 Laser Cannon",
+      "name": "WEAK",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S1",
@@ -9635,7 +9635,7 @@
     },
     {
       "id": "BEHR_LaserRepeater_VNG_S2",
-      "name": "Behring S2 Laser Repeater",
+      "name": "GVSR",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S2",
@@ -9663,7 +9663,7 @@
     },
     {
       "id": "HRST_Pyro_LaserRepeater_S2",
-      "name": "Hurston S2 Laser Repeater",
+      "name": "Ardor-2",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S2",
@@ -9691,7 +9691,7 @@
     },
     {
       "id": "HRST_LaserRepeater_S2",
-      "name": "Hurston S2 Laser Repeater",
+      "name": "Attrition-2",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S2",
@@ -9719,7 +9719,7 @@
     },
     {
       "id": "KLWE_LaserRepeater_S2",
-      "name": "Klaus S2 Laser Repeater",
+      "name": "CF-227 Badger",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S2",
@@ -9747,7 +9747,7 @@
     },
     {
       "id": "VNCL_LaserCannon_S2",
-      "name": "Vanduul S2 Laser Cannon",
+      "name": "WASP",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S2",
@@ -9775,7 +9775,7 @@
     },
     {
       "id": "HRST_Pyro_LaserRepeater_S3",
-      "name": "Hurston S3 Laser Repeater",
+      "name": "Ardor-3",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S3",
@@ -9803,7 +9803,7 @@
     },
     {
       "id": "HRST_LaserRepeater_S3",
-      "name": "Hurston S3 Laser Repeater",
+      "name": "Attrition-3",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S3",
@@ -9831,7 +9831,7 @@
     },
     {
       "id": "HRST_Storm_LaserRepeater_S3",
-      "name": "Hurston S3 Laser Repeater",
+      "name": "Reign-3",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S3",
@@ -9859,7 +9859,7 @@
     },
     {
       "id": "KLWE_LaserRepeater_S3",
-      "name": "Klaus S3 Laser Repeater",
+      "name": "CF-337 Panther",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S3",
@@ -9887,7 +9887,7 @@
     },
     {
       "id": "TOAG_LaserRepeater_S3",
-      "name": "Torral S3 Laser Repeater",
+      "name": "Yeng'tu",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S3",
@@ -9915,7 +9915,7 @@
     },
     {
       "id": "GLSN_LaserRepeater_S3",
-      "name": "Unknown S3 Laser Repeater",
+      "name": "Tormenter",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S3",
@@ -9943,7 +9943,7 @@
     },
     {
       "id": "HRST_LaserRepeater_S4",
-      "name": "Hurston S4 Laser Repeater",
+      "name": "Attrition-4",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S4",
@@ -9971,7 +9971,7 @@
     },
     {
       "id": "KLWE_LaserRepeater_S4",
-      "name": "Klaus S4 Laser Repeater",
+      "name": "CF-447 Rhino",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S4",
@@ -9999,7 +9999,7 @@
     },
     {
       "id": "KRIG_Wolf_LaserRepeater_S4",
-      "name": "Kruger S4 Laser Repeater",
+      "name": "Axiom L-22",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S4",
@@ -10027,7 +10027,7 @@
     },
     {
       "id": "HRST_LaserRepeater_S5",
-      "name": "Hurston S5 Laser Repeater",
+      "name": "Attrition-5",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S5",
@@ -10055,7 +10055,7 @@
     },
     {
       "id": "KLWE_LaserRepeater_S5",
-      "name": "Klaus S5 Laser Repeater",
+      "name": "CF-557 Galdereen",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S5",
@@ -10082,7 +10082,7 @@
     },
     {
       "id": "RSI_LaserRepeater_S5",
-      "name": "Robert S5 Laser Repeater",
+      "name": "Echion",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S5",
@@ -10110,7 +10110,7 @@
     },
     {
       "id": "HRST_LaserRepeater_S6",
-      "name": "Hurston S6 Laser Repeater",
+      "name": "Attrition-6",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S6",
@@ -10138,7 +10138,7 @@
     },
     {
       "id": "KLWE_LaserRepeater_S6",
-      "name": "Klaus S6 Laser Repeater",
+      "name": "CF-667 Mammoth Repeater",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S6",
@@ -10166,7 +10166,7 @@
     },
     {
       "id": "VNCL_Gen2_LaserRepeater_S6",
-      "name": "Vanduul S6 Laser Repeater",
+      "name": "STRIKER",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S6",
@@ -10193,7 +10193,7 @@
     },
     {
       "id": "HRST_LaserScattergun_S1",
-      "name": "Hurston S1 Laser Scattergun",
+      "name": "Dominance-1",
       "category": "Ship Weapons",
       "subcategory": "Laser Scatterguns",
       "size": "S1",
@@ -10221,7 +10221,7 @@
     },
     {
       "id": "HRST_LaserScattergun_S2",
-      "name": "Hurston S2 Laser Scattergun",
+      "name": "Dominance-2",
       "category": "Ship Weapons",
       "subcategory": "Laser Scatterguns",
       "size": "S2",
@@ -10249,7 +10249,7 @@
     },
     {
       "id": "HRST_LaserScattergun_S3",
-      "name": "Hurston S3 Laser Scattergun",
+      "name": "Dominance-3",
       "category": "Ship Weapons",
       "subcategory": "Laser Scatterguns",
       "size": "S3",
@@ -10277,7 +10277,7 @@
     },
     {
       "id": "KLWE_MassDriver_S1",
-      "name": "Klaus S1 Mass Driver",
+      "name": "Sledge I",
       "category": "Ship Weapons",
       "subcategory": "Mass Drivers",
       "size": "S1",
@@ -10302,7 +10302,7 @@
     },
     {
       "id": "KLWE_MassDriver_S10",
-      "name": "Klaus S10 Mass Driver",
+      "name": "Destroyer",
       "category": "Ship Weapons",
       "subcategory": "Mass Drivers",
       "size": "S10",
@@ -10327,7 +10327,7 @@
     },
     {
       "id": "APAR_MassDriver_S2",
-      "name": "Apocalypse S2 Mass Driver",
+      "name": "Strife",
       "category": "Ship Weapons",
       "subcategory": "Mass Drivers",
       "size": "S2",
@@ -10352,7 +10352,7 @@
     },
     {
       "id": "KLWE_MassDriver_S2",
-      "name": "Klaus S2 Mass Driver",
+      "name": "Sledge II",
       "category": "Ship Weapons",
       "subcategory": "Mass Drivers",
       "size": "S2",
@@ -10377,7 +10377,7 @@
     },
     {
       "id": "KLWE_MassDriver_S3",
-      "name": "Klaus S3 Mass Driver",
+      "name": "Sledge III",
       "category": "Ship Weapons",
       "subcategory": "Mass Drivers",
       "size": "S3",
@@ -10431,7 +10431,7 @@
     },
     {
       "id": "Mining_Head_S00_Klein",
-      "name": "Klein",
+      "name": "Klein-S2 Mining Laser",
       "category": "Ship Weapons",
       "subcategory": "Mining Lasers",
       "size": "S0",
@@ -10460,7 +10460,7 @@
     },
     {
       "id": "Mining_Head_S00_Helix",
-      "name": "Most powerful mining laser, strongest laser",
+      "name": "Helix",
       "category": "Ship Weapons",
       "subcategory": "Mining Lasers",
       "size": "S0",
@@ -10488,7 +10488,7 @@
     },
     {
       "id": "MISL_S01_IR_VNCL_Arrow",
-      "name": "'Arrow' I Missile [IR]",
+      "name": "Arrow",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S1",
@@ -10509,7 +10509,7 @@
     },
     {
       "id": "MISL_S01_IR_BEHR_Marksman",
-      "name": "Marksman I Missile [IR]",
+      "name": "Marksman",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S1",
@@ -10530,7 +10530,7 @@
     },
     {
       "id": "MISL_S01_EM_BEHR_Pioneer",
-      "name": "Pioneer I Missile [EM]",
+      "name": "Pioneer",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S1",
@@ -10551,7 +10551,7 @@
     },
     {
       "id": "MISL_S01_CS_FSKI_Spark",
-      "name": "Spark I Missile [CS]",
+      "name": "Spark",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S1",
@@ -10572,7 +10572,7 @@
     },
     {
       "id": "MISL_S01_EM_THCN_TaskForce",
-      "name": "TaskForce I Missile [EM]",
+      "name": "TaskForce",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S1",
@@ -10593,7 +10593,7 @@
     },
     {
       "id": "MISL_S10_CS_BEHR_Executor",
-      "name": "EX-T10-CS \"Executor\" Torpedo [CS]",
+      "name": "EX-T10 Executor",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S10",
@@ -10614,7 +10614,7 @@
     },
     {
       "id": "MISL_S10_EM_BEHR_Executor",
-      "name": "EX-T10-EM \"Executor\" Torpedo [EM]",
+      "name": "EX-T10 Executor",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S10",
@@ -10635,7 +10635,7 @@
     },
     {
       "id": "MISL_S10_IR_BEHR_Executor",
-      "name": "EX-T10-IR \"Executor\" Torpedo [IR]",
+      "name": "EX-T10 Executor",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S10",
@@ -10656,7 +10656,7 @@
     },
     {
       "id": "MISL_S10_IR_BEHR_Torpedo",
-      "name": "VT-T10 \"Veritas\" Torpedo [IR]",
+      "name": "VT-T10 Veritas",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S10",
@@ -10677,7 +10677,7 @@
     },
     {
       "id": "MISL_S10_CS_TALN_Vanquisher",
-      "name": "Vanquisher X-CS Torpedo [CS]",
+      "name": "Vanquisher",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S10",
@@ -10698,7 +10698,7 @@
     },
     {
       "id": "MISL_S10_EM_TALN_Vanquisher",
-      "name": "Vanquisher X-EM Torpedo [EM]",
+      "name": "Vanquisher",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S10",
@@ -10719,7 +10719,7 @@
     },
     {
       "id": "MISL_S10_IR_TALN_Vanquisher",
-      "name": "Vanquisher X-IR Torpedo [IR]",
+      "name": "Vanquisher",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S10",
@@ -10740,7 +10740,7 @@
     },
     {
       "id": "MISL_S12_CS_TALN_Calamity",
-      "name": "Calamity XII-CS Torpedo [CS]",
+      "name": "Calamity",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S12",
@@ -10761,7 +10761,7 @@
     },
     {
       "id": "MISL_S12_EM_TALN_Calamity",
-      "name": "Calamity XII-EM Torpedo [EM]",
+      "name": "Calamity",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S12",
@@ -10782,7 +10782,7 @@
     },
     {
       "id": "MISL_S12_IR_TALN_Calamity",
-      "name": "Calamity XII-IR Torpedo [IR]",
+      "name": "Calamity",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S12",
@@ -10803,7 +10803,7 @@
     },
     {
       "id": "MISL_S12_CS_BEHR_Executor",
-      "name": "EX-T12-CS \"Executor\" Torpedo [CS]",
+      "name": "EX-T12 Executor",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S12",
@@ -10824,7 +10824,7 @@
     },
     {
       "id": "MISL_S12_EM_BEHR_Executor",
-      "name": "EX-T12-EM \"Executor\" Torpedo [EM]",
+      "name": "EX-T12 Executor",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S12",
@@ -10845,7 +10845,7 @@
     },
     {
       "id": "MISL_S12_IR_BEHR_Executor",
-      "name": "EX-T12-IR \"Executor\" Torpedo [IR]",
+      "name": "EX-T12 Executor",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S12",
@@ -10866,7 +10866,7 @@
     },
     {
       "id": "MISL_S02_IR_VNCL_Bullet",
-      "name": "'Bullet' II Missile [IR]",
+      "name": "Bullet",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S2",
@@ -10887,7 +10887,7 @@
     },
     {
       "id": "MISL_S02_EM_TALN_Dominator",
-      "name": "Dominator II Missile [EM]",
+      "name": "Dominator",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S2",
@@ -10908,7 +10908,7 @@
     },
     {
       "id": "MISL_S02_IR_FSKI_Ignite",
-      "name": "Ignite II Missile [IR]",
+      "name": "Ignite",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S2",
@@ -10929,7 +10929,7 @@
     },
     {
       "id": "MISL_S02_IR_NOVP_Rattler",
-      "name": "Rattler II Missile [IR]",
+      "name": "Rattler",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S2",
@@ -10950,7 +10950,7 @@
     },
     {
       "id": "MISL_S02_CS_THCN_StrikeForce",
-      "name": "StrikeForce II Missile [CS]",
+      "name": "StrikeForce",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S2",
@@ -10971,7 +10971,7 @@
     },
     {
       "id": "MISL_S02_CS_FSKI_Tempest",
-      "name": "Tempest II Missile [CS]",
+      "name": "Tempest",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S2",
@@ -10992,7 +10992,7 @@
     },
     {
       "id": "MISL_S03_IR_VNCL_Chaos",
-      "name": "'Chaos' III Missile [IR]",
+      "name": "Chaos",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S3",
@@ -11013,7 +11013,7 @@
     },
     {
       "id": "MISL_S03_CS_FSKI_Arrester",
-      "name": "Arrester III Missile [CS]",
+      "name": "Arrester",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S3",
@@ -11034,7 +11034,7 @@
     },
     {
       "id": "MISL_S03_EM_FSKI_Thunderbolt",
-      "name": "Thunderbolt III Missile [EM]",
+      "name": "Thunderbolt",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S3",
@@ -11055,7 +11055,7 @@
     },
     {
       "id": "MISL_S03_IR_NOVP_Viper",
-      "name": "Viper III Missile [IR]",
+      "name": "Viper",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S3",
@@ -11076,7 +11076,7 @@
     },
     {
       "id": "MISL_S04_IR_VNCL_Dragon",
-      "name": "'Dragon' IV Missile [IR]",
+      "name": "Dragon",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S4",
@@ -11097,7 +11097,7 @@
     },
     {
       "id": "MISL_S04_CS_TALN_Assailant",
-      "name": "Assailant IV Missile [CS]",
+      "name": "Assailant",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S4",
@@ -11118,7 +11118,7 @@
     },
     {
       "id": "MISL_S04_IR_BEHR_Pathfinder",
-      "name": "Pathfinder IV Missile [IR]",
+      "name": "Pathfinder",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S4",
@@ -11139,7 +11139,7 @@
     },
     {
       "id": "MISL_S04_EM_TALN_Raptor",
-      "name": "Raptor IV Missile [EM]",
+      "name": "Raptor",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S4",
@@ -11160,7 +11160,7 @@
     },
     {
       "id": "MISL_S05_EM_TALN_Reaper",
-      "name": "Reaper V Missile [EM]",
+      "name": "Reaper",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S5",
@@ -11181,7 +11181,7 @@
     },
     {
       "id": "MISL_S05_EM_TALN_Scimitar",
-      "name": "Scimitar V Missile [EM]",
+      "name": "Scimitar",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S5",
@@ -11202,7 +11202,7 @@
     },
     {
       "id": "MISL_S05_CS_TALN_Stalker",
-      "name": "Stalker V Missile [CS]",
+      "name": "Stalker",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S5",
@@ -11223,7 +11223,7 @@
     },
     {
       "id": "MISL_S05_IR_TALN_Valkyrie",
-      "name": "Valkyrie V Missile [IR]",
+      "name": "Valkyrie",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S5",
@@ -11244,7 +11244,7 @@
     },
     {
       "id": "MISL_S07_IR_TALN_Hellion",
-      "name": "Hellion VII Missile [IR]",
+      "name": "Hellion",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S7",
@@ -11265,7 +11265,7 @@
     },
     {
       "id": "MISL_S09_CS_TALN_Argos",
-      "name": "Argos IX Torpedo [CS]",
+      "name": "Argos",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S9",
@@ -11285,7 +11285,7 @@
     },
     {
       "id": "MISL_S09_EM_TALN_Seeker",
-      "name": "Seeker IX Torpedo [EM]",
+      "name": "Seeker",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S9",
@@ -11306,7 +11306,7 @@
     },
     {
       "id": "MISL_S09_IR_TALN_Typhoon",
-      "name": "Typhoon IX Torpedo [IR]",
+      "name": "Typhoon",
       "category": "Ship Weapons",
       "subcategory": "Missiles",
       "size": "S9",
@@ -11327,7 +11327,7 @@
     },
     {
       "id": "MXOX_NeutronCannon_S1",
-      "name": "MaxOx S1 Neutron Cannon",
+      "name": "NN-13",
       "category": "Ship Weapons",
       "subcategory": "Neutron Cannons",
       "size": "S1",
@@ -11355,7 +11355,7 @@
     },
     {
       "id": "MXOX_NeutronCannon_S2",
-      "name": "MaxOx S2 Neutron Cannon",
+      "name": "NN-14",
       "category": "Ship Weapons",
       "subcategory": "Neutron Cannons",
       "size": "S2",
@@ -11383,7 +11383,7 @@
     },
     {
       "id": "MXOX_NeutronCannon_S3",
-      "name": "MaxOx S3 Neutron Cannon",
+      "name": "NN-15",
       "category": "Ship Weapons",
       "subcategory": "Neutron Cannons",
       "size": "S3",
@@ -11411,7 +11411,7 @@
     },
     {
       "id": "VNCL_NeutronCannon_S5",
-      "name": "Vanduul S5 Neutron Cannon",
+      "name": "WAR",
       "category": "Ship Weapons",
       "subcategory": "Neutron Cannons",
       "size": "S5",
@@ -11439,7 +11439,7 @@
     },
     {
       "id": "MXOX_NeutronRepeater_S1",
-      "name": "MaxOx S1 Neutron Repeater",
+      "name": "NDB-26",
       "category": "Ship Weapons",
       "subcategory": "Neutron Repeaters",
       "size": "S1",
@@ -11467,7 +11467,7 @@
     },
     {
       "id": "MXOX_NeutronRepeater_S2",
-      "name": "MaxOx S2 Neutron Repeater",
+      "name": "NDB-28",
       "category": "Ship Weapons",
       "subcategory": "Neutron Repeaters",
       "size": "S2",
@@ -11495,7 +11495,7 @@
     },
     {
       "id": "MXOX_NeutronRepeater_S3",
-      "name": "MaxOx S3 Neutron Repeater",
+      "name": "NDB-30",
       "category": "Ship Weapons",
       "subcategory": "Neutron Repeaters",
       "size": "S3",
@@ -11523,7 +11523,7 @@
     },
     {
       "id": "VNCL_PlasmaCannon_S2",
-      "name": "'WHIP' Cannon",
+      "name": "WHIP",
       "category": "Ship Weapons",
       "subcategory": "Plasma Cannons",
       "size": "S2",
@@ -11550,7 +11550,7 @@
     },
     {
       "id": "VNCL_PlasmaCannon_S3",
-      "name": "'WARLORD' Cannon",
+      "name": "WARLORD",
       "category": "Ship Weapons",
       "subcategory": "Plasma Cannons",
       "size": "S3",
@@ -11577,7 +11577,7 @@
     },
     {
       "id": "VNCL_PlasmaCannon_S5",
-      "name": "Vanduul S5 Plasma Cannon",
+      "name": "WRATH",
       "category": "Ship Weapons",
       "subcategory": "Plasma Cannons",
       "size": "S5",
@@ -11605,7 +11605,7 @@
     },
     {
       "id": "VNCL_Gen2_PlasmaCannon_S8",
-      "name": "Vanduul S8 Plasma Cannon",
+      "name": "RAGE",
       "category": "Ship Weapons",
       "subcategory": "Plasma Cannons",
       "size": "S8",
@@ -11632,7 +11632,7 @@
     },
     {
       "id": "AMRS_ScatterGun_S3",
-      "name": "Scatter Gun",
+      "name": "PyroBurst",
       "category": "Ship Weapons",
       "subcategory": "Plasma Scatterguns",
       "size": "S3",
@@ -11660,7 +11660,7 @@
     },
     {
       "id": "HRST_S1_RPOD_6x_S1",
-      "name": "Jericho [S1]",
+      "name": "Jericho",
       "category": "Ship Weapons",
       "subcategory": "Rocket Pods",
       "size": "S1",
@@ -11674,7 +11674,7 @@
     },
     {
       "id": "THCN_S1_RPOD_4x_S2",
-      "name": "Liberator [S1]",
+      "name": "Liberator",
       "category": "Ship Weapons",
       "subcategory": "Rocket Pods",
       "size": "S1",
@@ -11688,7 +11688,7 @@
     },
     {
       "id": "NOVP_Rocket_Venom_S1_Strike_TL_IR",
-      "name": "Nova Pyrotechnica Venom Rocket",
+      "name": "Venom",
       "category": "Ship Weapons",
       "subcategory": "Rocket Pods",
       "size": "S1",
@@ -11706,7 +11706,7 @@
     },
     {
       "id": "FSKI_S1_RPOD_3x_S3",
-      "name": "Yebira I [S1]",
+      "name": "Yebira I",
       "category": "Ship Weapons",
       "subcategory": "Rocket Pods",
       "size": "S1",
@@ -11720,7 +11720,7 @@
     },
     {
       "id": "HRST_S2_RPOD_12x_S1",
-      "name": "Jericho X [S2]",
+      "name": "Jericho X",
       "category": "Ship Weapons",
       "subcategory": "Rocket Pods",
       "size": "S2",
@@ -11734,7 +11734,7 @@
     },
     {
       "id": "THCN_S2_RPOD_8x_S2",
-      "name": "Liberator Prime [S2]",
+      "name": "Liberator Prime",
       "category": "Ship Weapons",
       "subcategory": "Rocket Pods",
       "size": "S2",
@@ -11748,7 +11748,7 @@
     },
     {
       "id": "FSKI_S2_RPOD_6x_S3",
-      "name": "Yebira II [S2]",
+      "name": "Yebira II",
       "category": "Ship Weapons",
       "subcategory": "Rocket Pods",
       "size": "S2",
@@ -11762,7 +11762,7 @@
     },
     {
       "id": "HRST_S3_RPOD_18x_S1",
-      "name": "Jericho XL [S3]",
+      "name": "Jericho XL",
       "category": "Ship Weapons",
       "subcategory": "Rocket Pods",
       "size": "S3",
@@ -11776,7 +11776,7 @@
     },
     {
       "id": "THCN_S3_RPOD_12x_S2",
-      "name": "Liberator Ultra [S3]",
+      "name": "Liberator Ultra",
       "category": "Ship Weapons",
       "subcategory": "Rocket Pods",
       "size": "S3",
@@ -11790,7 +11790,7 @@
     },
     {
       "id": "BANU_TachyonCannon_S1",
-      "name": "Banu S1 Tachyon Cannon",
+      "name": "Singe",
       "category": "Ship Weapons",
       "subcategory": "Tachyon Cannons",
       "size": "S1",
@@ -11818,7 +11818,7 @@
     },
     {
       "id": "VNCL_Gen2_TachyonCannon_S10",
-      "name": "Vanduul S10 Tachyon Cannon",
+      "name": "ANNIHILATOR",
       "category": "Ship Weapons",
       "subcategory": "Tachyon Cannons",
       "size": "S10",
@@ -11841,7 +11841,7 @@
     },
     {
       "id": "BANU_TachyonCannon_S2",
-      "name": "Banu S2 Tachyon Cannon",
+      "name": "Singe",
       "category": "Ship Weapons",
       "subcategory": "Tachyon Cannons",
       "size": "S2",
@@ -11869,7 +11869,7 @@
     },
     {
       "id": "BANU_TachyonCannon_S3",
-      "name": "Banu S3 Tachyon Cannon",
+      "name": "Singe",
       "category": "Ship Weapons",
       "subcategory": "Tachyon Cannons",
       "size": "S3",
@@ -11897,7 +11897,7 @@
     },
     {
       "id": "VNCL_Gen2_TachyonCannon_S7",
-      "name": "Vanduul S7 Tachyon Cannon",
+      "name": "ERADICATOR",
       "category": "Ship Weapons",
       "subcategory": "Tachyon Cannons",
       "size": "S7",
@@ -11924,7 +11924,7 @@
     },
     {
       "id": "GRIN_TractorBeam_002_shared",
-      "name": "002",
+      "name": "SureGrip",
       "category": "Ship Weapons",
       "subcategory": "Tractor Beams",
       "manufacturer": "Greycat Industrial",
@@ -11948,7 +11948,7 @@
     },
     {
       "id": "GRIN_TractorBeam_003_shared",
-      "name": "003",
+      "name": "ViseLock",
       "category": "Ship Weapons",
       "subcategory": "Tractor Beams",
       "manufacturer": "Greycat Industrial",
@@ -11972,7 +11972,7 @@
     },
     {
       "id": "GRIN_TractorBeam_002_shared_UT1",
-      "name": "UT1",
+      "name": "SureGrip UT1",
       "category": "Ship Weapons",
       "subcategory": "Tractor Beams",
       "manufacturer": "Greycat Industrial",
@@ -11992,11 +11992,12 @@
         "Signatures": "EM: 0",
         "IR": "0",
         "Overheat Temp": "450K"
-      }
+      },
+      "size": "S1"
     },
     {
       "id": "GRIN_TractorBeam_002_shared_UT2",
-      "name": "UT2",
+      "name": "SureGrip UT2",
       "category": "Ship Weapons",
       "subcategory": "Tractor Beams",
       "manufacturer": "Greycat Industrial",
@@ -12016,11 +12017,12 @@
         "Signatures": "EM: 0",
         "IR": "0",
         "Overheat Temp": "450K"
-      }
+      },
+      "size": "S2"
     },
     {
       "id": "ARGO_TractorBeam_S1_Cargo",
-      "name": "Argo S1 Tractor Beam",
+      "name": "Durus",
       "category": "Ship Weapons",
       "subcategory": "Tractor Beams",
       "size": "S1",
@@ -12067,7 +12069,7 @@
     },
     {
       "id": "GRIN_TractorBeam_004_S3",
-      "name": "004",
+      "name": "SafeTow",
       "category": "Ship Weapons",
       "subcategory": "Tractor Beams",
       "size": "S3",
