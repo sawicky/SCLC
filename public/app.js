@@ -1568,6 +1568,10 @@ function wireEvents() {
   });
   els.reload.addEventListener("click", fetchItems);
 
+  // Footer "reset" button opens the recovery widget on demand.
+  const versionReset = document.getElementById("version-reset");
+  if (versionReset) versionReset.addEventListener("click", () => showRecovery());
+
   // Tabs + session
   els.catalogTabs.addEventListener("click", (e) => {
     const btn = e.target.closest(".tab");
@@ -1661,43 +1665,63 @@ function wireEvents() {
 }
 
 // ---------- Version footer ----------
-// version.json is written at build time by scripts/gen-version.js. If it is
-// missing (e.g. a static deploy with no build step) the footer stays hidden.
+// version.json is written at build time by scripts/gen-version.js. The footer
+// shows the commit as plain text; if version.json is missing it reads "local".
 async function renderVersionFooter() {
   const el = document.getElementById("version-footer");
-  if (!el) return;
+  const commitEl = document.getElementById("version-commit");
+  if (!el || !commitEl) return;
+  el.classList.remove("hidden");
   try {
     const res = await fetch("./version.json?t=" + Date.now(), { cache: "no-store" });
     if (!res.ok) throw new Error("HTTP " + res.status);
     const v = await res.json();
-    if (!v.commit) throw new Error("no commit");
-    el.textContent = v.commit;
-    el.href = "https://github.com/sawicky/SCLC/commit/" + v.commit;
-    el.title = [v.ref, v.builtAt ? "built " + new Date(v.builtAt).toLocaleString() : ""]
-      .filter(Boolean).join(" • ");
-    el.classList.remove("hidden");
+    commitEl.textContent = v.commit || "unknown";
+    commitEl.title = [v.ref, v.builtAt ? "built " + new Date(v.builtAt).toLocaleString() : ""]
+      .filter(Boolean).join(" • ") || "Deployed commit";
   } catch (_) {
-    el.classList.add("hidden");
+    commitEl.textContent = "local";
+    commitEl.title = "version.json not found";
   }
 }
 
 // ---------- Init ----------
-// If startup throws (typically corrupt/incompatible localStorage data), show
-// a recovery panel instead of a blank page so the user can reset and reload.
+// The recovery widget. Shown automatically if startup throws (corrupt or
+// incompatible localStorage data), and also openable on demand from the
+// footer "reset" button. Passing an error switches it to crash-report mode.
 function showRecovery(err) {
-  console.error("SCLC failed to start:", err);
+  if (document.querySelector(".recovery")) return; // already open
+  const manual = !err;
+  if (err) console.error("SCLC failed to start:", err);
+
   const wrap = document.createElement("div");
   wrap.className = "recovery";
   wrap.innerHTML = `
     <div class="recovery-box">
-      <h2>Couldn't load saved data</h2>
-      <p>Something stored in this browser is stopping the app from starting.
-         Resetting clears this browser's roster, points, wishlists and history.
-         Other people's browsers are not affected.</p>
+      <h2></h2>
+      <p></p>
       <pre class="recovery-err"></pre>
-      <button type="button" class="primary-btn" id="recovery-reset">Reset saved data &amp; reload</button>
+      <div class="recovery-actions">
+        <button type="button" class="ghost-btn" id="recovery-cancel">Cancel</button>
+        <button type="button" class="primary-btn" id="recovery-reset">Reset saved data &amp; reload</button>
+      </div>
     </div>`;
-  wrap.querySelector(".recovery-err").textContent = String((err && err.stack) || err);
+
+  wrap.querySelector("h2").textContent = manual
+    ? "Reset saved data?"
+    : "Couldn't load saved data";
+  wrap.querySelector("p").textContent = manual
+    ? "This clears this browser's roster, points, wishlists and history, then reloads. Other people's browsers are not affected."
+    : "Something stored in this browser is stopping the app from starting. Resetting clears this browser's roster, points, wishlists and history. Other people's browsers are not affected.";
+
+  const errEl = wrap.querySelector(".recovery-err");
+  if (manual) errEl.remove();
+  else errEl.textContent = String((err && err.stack) || err);
+
+  const cancelBtn = wrap.querySelector("#recovery-cancel");
+  if (manual) cancelBtn.addEventListener("click", () => wrap.remove());
+  else cancelBtn.remove();
+
   wrap.querySelector("#recovery-reset").addEventListener("click", () => {
     try {
       Object.keys(localStorage)
@@ -1706,6 +1730,7 @@ function showRecovery(err) {
     } catch (_) {}
     location.reload();
   });
+
   document.body.appendChild(wrap);
 }
 
