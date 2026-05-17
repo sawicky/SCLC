@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCLC - Star Citizen Loot Council</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="starfield" aria-hidden="true"></div>
+  <div class="nebula" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f5c66b"/>
+              <stop offset="55%" stop-color="#4dffea"/>
+              <stop offset="100%" stop-color="#6b8cff"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 2 L28 7 V16 C28 22 22 27 16 30 C10 27 4 22 4 16 V7 Z"
+                fill="none" stroke="url(#g1)" stroke-width="1.6"/>
+          <path d="M16 8 L23 11 V16 C23 20 19.5 23 16 25 C12.5 23 9 20 9 16 V11 Z"
+                fill="url(#g1)" opacity="0.85"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-title">SCLC</div>
+        <div class="brand-sub">Star Citizen Loot Council</div>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button id="reload-items" class="ghost-btn" title="Re-fetch items.json">
+        <span class="icon">&#x21bb;</span>
+        Reload items
+      </button>
+      <span id="item-count" class="muted small"></span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="catalog panel">
+      <div class="panel-head">
+        <h2>Catalog</h2>
+        <div class="search-wrap">
+          <input id="search" type="search" placeholder="Search items, manufacturers..." autocomplete="off"/>
+        </div>
+      </div>
+
+      <div class="filters">
+        <div class="filter-group" data-filter="size">
+          <span class="filter-label">Size</span>
+          <div class="chips" id="filter-size"></div>
+        </div>
+        <div class="filter-group" data-filter="grade">
+          <span class="filter-label">Grade</span>
+          <div class="chips" id="filter-grade"></div>
+        </div>
+        <div class="filter-group" data-filter="industry">
+          <span class="filter-label">Industry</span>
+          <div class="chips" id="filter-industry"></div>
+        </div>
+        <button id="clear-filters" class="ghost-btn small-btn" title="Clear all filters">Clear</button>
+      </div>
+
+      <div id="tree" class="tree" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state hidden">
+        <p>No items match your filters.</p>
+      </div>
+    </section>
+
+    <aside class="side">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Roster</h2>
+          <span id="people-count" class="muted small"></span>
+        </div>
+        <form id="add-person-form" class="add-row" autocomplete="off">
+          <input id="new-person" type="text" placeholder="Add name (Enter)" maxlength="40"/>
+          <button class="primary-btn small-btn" type="submit" aria-label="Add person">+</button>
+          <button id="paste-image-btn" class="ghost-btn small-btn" type="button"
+                  title="Paste a screenshot of a Discord member list (or press Ctrl+V anywhere)">Paste &#128203;</button>
+        </form>
+        <div class="hint muted small">
+          Click to select. <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+click for multi. <kbd>Shift</kbd>+click for range. Paste an image to OCR names.
+        </div>
+        <ul id="people" class="people" tabindex="0"></ul>
+        <div class="roster-actions">
+          <button id="select-all" class="ghost-btn small-btn">Select all</button>
+          <button id="select-none" class="ghost-btn small-btn">Clear selection</button>
+          <span class="spacer"></span>
+          <span id="selected-count" class="muted small"></span>
+        </div>
+      </section>
+
+      <section id="person-panel" class="panel">
+        <div class="panel-head">
+          <h2>Focus</h2>
+          <span id="focused-name"></span>
+        </div>
+        <div id="person-empty" class="person-empty">Click a name above to see their wishlist and wins.</div>
+        <div id="person-detail" class="hidden">
+          <div class="person-section">
+            <h3>Wishlist <span class="count" id="wishlist-count"></span></h3>
+            <ul id="wishlist" class="person-list"></ul>
+          </div>
+          <div class="person-section">
+            <h3>Wins <span class="count" id="person-wins-count"></span></h3>
+            <ul id="person-wins" class="person-list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="activity-panel" class="panel">
+        <div class="panel-head">
+          <h2>Activity</h2>
+          <button id="clear-activity" class="ghost-btn small-btn"
+                  title="Clears the global feed only - per-person loot history is preserved.">Clear feed</button>
+        </div>
+        <ul id="activity" class="activity"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <!-- Item detail (non-blocking) -->
+  <div id="modal-backdrop" class="modal-backdrop hidden" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-body">
+        <div class="modal-image-wrap">
+          <img id="modal-image" alt="" />
+          <div id="modal-image-placeholder" class="image-placeholder">No screenshot</div>
+        </div>
+        <div class="modal-content">
+          <div class="modal-meta">
+            <span id="modal-category" class="tag"></span>
+            <span id="modal-subcategory" class="tag faint"></span>
+            <span id="modal-size" class="tag size"></span>
+            <span id="modal-grade" class="tag grade"></span>
+            <span id="modal-industry" class="tag industry"></span>
+          </div>
+          <h2 id="modal-title">&nbsp;</h2>
+          <div id="modal-manufacturer" class="muted small"></div>
+          <p id="modal-description" class="description"></p>
+          <div id="modal-stats" class="stats"></div>
+
+          <div class="distribute-zone">
+            <div class="dist-row">
+              <label for="dist-method">Method</label>
+              <select id="dist-method">
+                <option value="random">Full random</option>
+                <option value="weighted">Weighted random</option>
+                <option value="least-recent">Least recent</option>
+                <option value="rolloff">Roll-off (dice)</option>
+              </select>
+            </div>
+
+            <div id="weight-editor" class="weight-editor hidden"></div>
+
+            <div class="dist-row">
+              <span id="dist-selected-summary" class="muted small">No one selected.</span>
+              <button id="distribute-btn" class="primary-btn" disabled>Distribute</button>
+            </div>
+
+            <div id="dist-result" class="dist-result hidden"></div>
+          </div>
+
+          <div class="wishlist-zone">
+            <div class="wishlist-zone-head">
+              <h3>Wishlists</h3>
+              <span class="muted small">Click a name to toggle this item on their list.</span>
+            </div>
+            <div id="wishlist-chips" class="wishlist-chips"></div>
+            <div id="wishlist-empty" class="wishlist-empty hidden">Add someone to the roster first.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OCR / paste image modal -->
+  <div id="ocr-backdrop" class="ocr-backdrop hidden" aria-hidden="true">
+    <div class="modal ocr-modal" role="dialog" aria-modal="true" aria-labelledby="ocr-title">
+      <button id="ocr-close" class="modal-close" aria-label="Close">&times;</button>
+      <div class="ocr-body">
+        <h2 id="ocr-title">Paste-image roster import</h2>
+        <p class="muted small">
+          Paste a screenshot of a Discord member list (Ctrl/Cmd+V anywhere) or drop an image below.
+          Names are read with on-device OCR (no upload). Review and edit before adding to the roster.
+        </p>
+
+        <label id="ocr-drop" class="ocr-drop" for="ocr-file-input">
+          <span id="ocr-drop-label">Drop image here or click to choose</span>
+          <input id="ocr-file-input" type="file" accept="image/*" hidden />
+        </label>
+
+        <div id="ocr-progress" class="ocr-progress hidden">
+          <div class="ocr-progress-label">Reading image...</div>
+          <div class="ocr-progress-bar"><div class="ocr-progress-fill"></div></div>
+        </div>
+
+        <div id="ocr-preview-wrap" class="ocr-preview-wrap hidden">
+          <img id="ocr-preview" alt="Pasted image"/>
+        </div>
+
+        <div id="ocr-results" class="ocr-results hidden">
+          <div class="ocr-results-head">
+            <h3>Detected names <span id="ocr-detected-count" class="muted small"></span></h3>
+            <div class="ocr-results-actions">
+              <button id="ocr-select-all" class="ghost-btn small-btn">Check all</button>
+              <button id="ocr-select-none" class="ghost-btn small-btn">Uncheck all</button>
+            </div>
+          </div>
+          <ul id="ocr-list" class="ocr-list"></ul>
+          <div class="ocr-footer">
+            <button id="ocr-add-row" class="ghost-btn small-btn">+ Add empty row</button>
+            <span class="spacer"></span>
+            <span id="ocr-summary" class="muted small"></span>
+            <button id="ocr-confirm" class="primary-btn">Add to roster</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
