@@ -66,26 +66,37 @@ function lsGet(key, fallback) {
 function lsSet(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {}
 }
+// localStorage may hold data from an older app version or be hand-edited.
+// These coerce a stored value to the expected shape so a wrong type can't
+// crash startup (e.g. new Set() on a non-iterable, .forEach on a non-array).
+function lsArray(key) {
+  const v = lsGet(key, null);
+  return Array.isArray(v) ? v : [];
+}
+function lsObject(key) {
+  const v = lsGet(key, null);
+  return (v && typeof v === "object" && !Array.isArray(v)) ? v : {};
+}
 
 function loadPersistence() {
-  state.people = lsGet(LS.people, []);
-  state.methodByItem = lsGet(LS.methodByItem, {});
-  state.weightsByPerson = lsGet(LS.weights, {});
-  state.lastWonAt = lsGet(LS.lastWonAt, {});
-  state.activity = lsGet(LS.activity, []);
-  state.openCategories = new Set(lsGet(LS.openCats, []));
-  state.openSubcategories = new Set(lsGet(LS.openSubs, []));
-  state.wishlists = lsGet(LS.wishlists, {});
+  state.people = lsArray(LS.people);
+  state.methodByItem = lsObject(LS.methodByItem);
+  state.weightsByPerson = lsObject(LS.weights);
+  state.lastWonAt = lsObject(LS.lastWonAt);
+  state.activity = lsArray(LS.activity);
+  state.openCategories = new Set(lsArray(LS.openCats));
+  state.openSubcategories = new Set(lsArray(LS.openSubs));
+  state.wishlists = lsObject(LS.wishlists);
   state.focusedPerson = lsGet(LS.focused, null);
-  state.points = lsGet(LS.points, {});
-  state.winsByPerson = lsGet(LS.winsByPerson, {});
-  state.session = lsGet(LS.session, []);
+  state.points = lsObject(LS.points);
+  state.winsByPerson = lsObject(LS.winsByPerson);
+  state.session = lsArray(LS.session);
 
   // Migration: if winsByPerson is empty but activity has entries, seed it
   // (so users upgrading from an earlier version keep their history).
   if (Object.keys(state.winsByPerson).length === 0 && state.activity.length > 0) {
     for (const e of state.activity) {
-      if (!e.winner) continue;
+      if (!e || !e.winner) continue;
       if (!state.winsByPerson[e.winner]) state.winsByPerson[e.winner] = [];
       state.winsByPerson[e.winner].push({
         ts: e.ts, itemId: e.itemId, item: e.item, method: e.method,
@@ -1671,13 +1682,44 @@ async function renderVersionFooter() {
 }
 
 // ---------- Init ----------
+// If startup throws (typically corrupt/incompatible localStorage data), show
+// a recovery panel instead of a blank page so the user can reset and reload.
+function showRecovery(err) {
+  console.error("SCLC failed to start:", err);
+  const wrap = document.createElement("div");
+  wrap.className = "recovery";
+  wrap.innerHTML = `
+    <div class="recovery-box">
+      <h2>Couldn't load saved data</h2>
+      <p>Something stored in this browser is stopping the app from starting.
+         Resetting clears this browser's roster, points, wishlists and history.
+         Other people's browsers are not affected.</p>
+      <pre class="recovery-err"></pre>
+      <button type="button" class="primary-btn" id="recovery-reset">Reset saved data &amp; reload</button>
+    </div>`;
+  wrap.querySelector(".recovery-err").textContent = String((err && err.stack) || err);
+  wrap.querySelector("#recovery-reset").addEventListener("click", () => {
+    try {
+      Object.keys(localStorage)
+        .filter((k) => k.startsWith("scl"))
+        .forEach((k) => localStorage.removeItem(k));
+    } catch (_) {}
+    location.reload();
+  });
+  document.body.appendChild(wrap);
+}
+
 function init() {
-  loadPersistence();
-  renderPeople();
-  renderActivity();
-  renderPersonDetail();
-  wireEvents();
-  fetchItems();
-  renderVersionFooter();
+  try {
+    loadPersistence();
+    renderPeople();
+    renderActivity();
+    renderPersonDetail();
+    wireEvents();
+    fetchItems();
+    renderVersionFooter();
+  } catch (err) {
+    showRecovery(err);
+  }
 }
 init();

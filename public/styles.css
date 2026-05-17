@@ -1243,6 +1243,40 @@ body {
   to   { opacity: 1; transform: translate(-50%, 0); }
 }
 
+/* ---------- Recovery panel (shown if startup fails) ---------- */
+.recovery {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 4, 12, 0.92);
+  backdrop-filter: blur(8px);
+}
+.recovery-box {
+  max-width: 460px;
+  padding: 22px 24px;
+  background: linear-gradient(180deg, rgba(20,28,56,0.96), rgba(10,14,30,0.96));
+  border: 1px solid var(--panel-border-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+.recovery-box h2 { margin: 0 0 8px; font-size: 18px; color: var(--text); }
+.recovery-box p { margin: 0; color: var(--text-muted); line-height: 1.5; font-size: 13px; }
+.recovery-err {
+  max-height: 120px;
+  overflow: auto;
+  padding: 8px 10px;
+  margin: 12px 0 14px;
+  font-size: 11px;
+  color: var(--danger);
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-sm);
+  white-space: pre-wrap;
+}
+
 /* ---------- Version footer ---------- */
 .version-footer {
   position: fixed;
