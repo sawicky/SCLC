@@ -31,8 +31,14 @@ const state = {
   // can still cap for readability without losing per-person history).
   winsByPerson: {},   // name -> [{ts, itemId, item, method}]
 
+  // Session: items collected this loot session, distributed later.
+  session: [],        // array of itemIds
+  // SCKP: transient per-person point spend for the current roll (not persisted).
+  sckpSpend: {},      // name -> integer
+
   // UI
   currentItem: null,
+  activeTab: "catalog",
 };
 
 const LS = {
@@ -47,6 +53,7 @@ const LS = {
   focused: "sclo.focused.v1",
   points: "sclc.points.v1",
   winsByPerson: "sclc.winsByPerson.v1",
+  session: "sclc.session.v1",
 };
 
 // ---------- Storage helpers ----------
@@ -72,6 +79,7 @@ function loadPersistence() {
   state.focusedPerson = lsGet(LS.focused, null);
   state.points = lsGet(LS.points, {});
   state.winsByPerson = lsGet(LS.winsByPerson, {});
+  state.session = lsGet(LS.session, []);
 
   // Migration: if winsByPerson is empty but activity has entries, seed it
   // (so users upgrading from an earlier version keep their history).
@@ -96,6 +104,15 @@ const els = {
   emptyState: $("#empty-state"),
   itemCount: $("#item-count"),
   search: $("#search"),
+  // Tabs + session view
+  catalogTabs: $("#catalog-tabs"),
+  catalogView: $("#catalog-view"),
+  sessionView: $("#session-view"),
+  sessionList: $("#session-list"),
+  sessionEmpty: $("#session-empty"),
+  sessionCount: $("#session-count"),
+  clearSession: $("#clear-session"),
+  searchWrap: document.querySelector(".search-wrap"),
   fSize: $("#filter-size"),
   fGrade: $("#filter-grade"),
   fIndustry: $("#filter-industry"),
@@ -162,6 +179,8 @@ const els = {
   mStats: $("#modal-stats"),
   method: $("#dist-method"),
   weightEditor: $("#weight-editor"),
+  sckpEditor: $("#sckp-editor"),
+  addToSession: $("#add-to-session-btn"),
   distSummary: $("#dist-selected-summary"),
   distribute: $("#distribute-btn"),
   distResult: $("#dist-result"),
@@ -192,6 +211,7 @@ async function fetchItems() {
     buildFilterChips();
     applyFilters();
     renderPersonDetail(); // resolve wishlist + win item names now that catalog is loaded
+    if (state.activeTab === "session") renderSession();
     els.itemCount.textContent = `${state.items.length} items`;
     toast(`Loaded ${state.items.length} items`);
   } catch (err) {
@@ -443,17 +463,13 @@ function renderPeople() {
 
     const span = document.createElement("span");
     span.className = "pname";
-    span.textContent = name;
+    span.appendChild(document.createTextNode(name));
+    const pts = document.createElement("span");
+    pts.className = "pts-tag";
+    pts.title = "Attendance points";
+    pts.textContent = `(${state.points[name] ?? 0})`;
+    span.appendChild(pts);
     li.appendChild(span);
-
-    const wlCount = (state.wishlists[name] || []).length;
-    if (wlCount > 0) {
-      const badge = document.createElement("span");
-      badge.className = "wishlist-badge";
-      badge.title = `${wlCount} on wishlist`;
-      badge.textContent = "★ " + wlCount;
-      li.appendChild(badge);
-    }
 
     const rm = document.createElement("button");
     rm.className = "remove";
@@ -585,7 +601,7 @@ function updateSelectedSummary() {
       ? `${n} selected: ${names.slice(0, 4).join(", ")}${n > 4 ? "…" : ""}`
       : "No one selected.";
     els.distribute.disabled = n === 0;
-    if (els.method.value === "weighted") renderWeightEditor();
+    renderMethodEditors();
   }
 }
 
@@ -830,14 +846,19 @@ function openItemModal(item) {
     }
   }
 
-  // Method memory: default to last method used for this item, otherwise random
-  els.method.value = state.methodByItem[item.id] || "random";
+  // Method memory: default to last method used for this item, otherwise
+  // roll-off. Legacy/unknown values fall back to roll-off.
+  const VALID_METHODS = ["rolloff", "weighted", "least-recent", "sckp"];
+  const storedMethod = state.methodByItem[item.id];
+  els.method.value = VALID_METHODS.includes(storedMethod) ? storedMethod : "rolloff";
+  state.sckpSpend = {};
   onMethodChange();
   els.distResult.classList.add("hidden");
   els.distResult.innerHTML = "";
 
   updateSelectedSummary();
   renderWishlistChips();
+  updateAddToSessionBtn();
 
   els.backdrop.classList.remove("hidden");
   els.backdrop.setAttribute("aria-hidden", "false");
@@ -870,8 +891,10 @@ function onDocClickWhileOpen(e) {
   if (panel && path.includes(panel)) return;
   // Click inside the roster sidebar (roster, person panel, activity)? keep open.
   if (els.side && path.includes(els.side)) return;
-  // Click on another item card? let its own handler reopen us with the new item.
-  if (path.some((el) => el.classList && el.classList.contains("item-card"))) return;
+  // Click on another item card (catalog or session)? let its own handler
+  // reopen us with the new item instead of closing.
+  if (path.some((el) => el.classList
+      && (el.classList.contains("item-card") || el.classList.contains("session-card")))) return;
   closeModal();
 }
 
@@ -910,7 +933,9 @@ function renderWeightEditor() {
     row.className = "weight-row";
     const n = document.createElement("div"); n.className = "wname"; n.textContent = name;
     const i = document.createElement("input");
-    i.type = "number"; i.min = "0"; i.step = "0.1";
+    // step="any" makes the spinner arrows move by whole integers while the
+    // field still accepts manually-typed decimals.
+    i.type = "number"; i.min = "0"; i.step = "any";
     i.value = state.weightsByPerson[name] ?? 1;
     i.addEventListener("input", () => {
       const v = parseFloat(i.value);
@@ -922,12 +947,70 @@ function renderWeightEditor() {
   }
 }
 
+// ---------- SCKP editor (Star Citizen Kill Points) ----------
+// Manual points-spend: each selected person gets a field for how many
+// attendance points they're spending on this item. Highest spend wins;
+// the winner's points are deducted on Distribute.
+function renderSckpEditor() {
+  if (!state.currentItem) return;
+  if (els.method.value !== "sckp") {
+    els.sckpEditor.classList.add("hidden");
+    els.sckpEditor.innerHTML = "";
+    return;
+  }
+  els.sckpEditor.classList.remove("hidden");
+  els.sckpEditor.innerHTML = "";
+  const names = [...state.selected];
+  if (names.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "muted small";
+    empty.style.gridColumn = "1 / -1";
+    empty.textContent = "Select people, then enter the points each is spending.";
+    els.sckpEditor.appendChild(empty);
+    return;
+  }
+  for (const name of names) {
+    const have = state.points[name] ?? 0;
+    const row = document.createElement("div");
+    row.className = "sckp-row";
+
+    const n = document.createElement("div");
+    n.className = "sname";
+    n.textContent = name;
+
+    const cur = document.createElement("div");
+    cur.className = "scur";
+    cur.textContent = `has ${have} pt`;
+
+    const i = document.createElement("input");
+    i.type = "number"; i.min = "0"; i.step = "1";
+    i.value = state.sckpSpend[name] ?? 0;
+    i.title = "Points " + name + " is spending on this item";
+    i.addEventListener("focus", () => i.select());
+    i.addEventListener("input", () => {
+      const v = parseInt(i.value, 10);
+      state.sckpSpend[name] = Number.isFinite(v) && v >= 0 ? v : 0;
+    });
+
+    row.appendChild(n);
+    row.appendChild(cur);
+    row.appendChild(i);
+    els.sckpEditor.appendChild(row);
+  }
+}
+
+// Show whichever method-specific editor matches the current method.
+function renderMethodEditors() {
+  renderWeightEditor();
+  renderSckpEditor();
+}
+
 function onMethodChange() {
   if (state.currentItem) {
     state.methodByItem[state.currentItem.id] = els.method.value;
     lsSet(LS.methodByItem, state.methodByItem);
   }
-  renderWeightEditor();
+  renderMethodEditors();
 }
 
 // ---------- Distribution ----------
@@ -938,12 +1021,13 @@ function distribute() {
 
   const method = els.method.value;
   let winner = null;
-  let detail = null;
 
-  if (method === "random") {
-    winner = names[Math.floor(Math.random() * names.length)];
-    renderSimpleResult(winner, "Full random");
-  } else if (method === "weighted") {
+  if (method === "sckp") {
+    distributeSckp(names);
+    return;
+  }
+
+  if (method === "weighted") {
     const weights = names.map((n) => Math.max(0, state.weightsByPerson[n] ?? 1));
     const sum = weights.reduce((a, b) => a + b, 0);
     if (sum <= 0) {
@@ -992,6 +1076,36 @@ function distribute() {
   }
 
   if (winner) recordWin(winner, state.currentItem, method);
+}
+
+// SCKP: manual kill-points spend. Highest spender wins (ties broken by a
+// roll); the winner's attendance points are reduced by what they spent.
+function distributeSckp(names) {
+  const spends = names.map((name) => ({
+    name,
+    spend: Math.max(0, Math.round(state.sckpSpend[name] ?? 0)),
+    have: state.points[name] ?? 0,
+  }));
+  const top = Math.max(...spends.map((s) => s.spend));
+  const tied = spends.filter((s) => s.spend === top);
+  const won = tied[Math.floor(Math.random() * tied.length)];
+
+  const remaining = Math.max(0, won.have - won.spend);
+  setPoints(won.name, remaining);
+
+  const rows = [...spends]
+    .sort((a, b) => b.spend - a.spend)
+    .map((s) => ({
+      name: s.name,
+      value: `${s.spend} pt`,
+      isWinner: s.name === won.name,
+    }));
+  renderRolloffResult(won.name, `SCKP · spent ${won.spend}, ${remaining} left`, rows);
+  recordWin(won.name, state.currentItem, "sckp");
+
+  // Clear the spend fields so the editor is ready for the next item.
+  state.sckpSpend = {};
+  renderSckpEditor();
 }
 
 function renderSimpleResult(winner, methodLabel) {
@@ -1119,6 +1233,7 @@ function methodLabel(m) {
     case "weighted": return "Weighted";
     case "least-recent": return "Least recent";
     case "rolloff": return "Roll-off";
+    case "sckp": return "SCKP";
     default: return m;
   }
 }
@@ -1323,6 +1438,106 @@ function confirmOcrAdd() {
   toast(added ? `Added ${added} ${added === 1 ? "person" : "people"} to the roster` : "No new names to add");
 }
 
+// ---------- Tabs + Session ----------
+function switchTab(tab) {
+  state.activeTab = tab;
+  for (const btn of els.catalogTabs.querySelectorAll(".tab")) {
+    btn.classList.toggle("active", btn.dataset.tab === tab);
+  }
+  const onSession = tab === "session";
+  els.catalogView.classList.toggle("hidden", onSession);
+  els.sessionView.classList.toggle("hidden", !onSession);
+  // The search box only applies to the catalog.
+  els.searchWrap.classList.toggle("hidden", onSession);
+  if (onSession) renderSession();
+}
+
+function addToSession(itemId) {
+  if (state.session.includes(itemId)) return;
+  state.session.push(itemId);
+  lsSet(LS.session, state.session);
+  if (state.activeTab === "session") renderSession();
+}
+
+function removeFromSession(itemId) {
+  state.session = state.session.filter((id) => id !== itemId);
+  lsSet(LS.session, state.session);
+  if (state.activeTab === "session") renderSession();
+  updateAddToSessionBtn();
+}
+
+function clearSession() {
+  if (state.session.length === 0) return;
+  state.session = [];
+  lsSet(LS.session, state.session);
+  renderSession();
+  updateAddToSessionBtn();
+  toast("Session cleared");
+}
+
+// Toggle the currently-open item in/out of the session.
+function toggleSession(itemId) {
+  if (state.session.includes(itemId)) {
+    removeFromSession(itemId);
+    toast("Removed from session");
+  } else {
+    addToSession(itemId);
+    toast("Added to session");
+  }
+  updateAddToSessionBtn();
+}
+
+// Keep the modal's add/remove button label in sync with session membership.
+function updateAddToSessionBtn() {
+  if (!state.currentItem) return;
+  const inSession = state.session.includes(state.currentItem.id);
+  els.addToSession.textContent = inSession ? "✓ In session — remove" : "+ Add to session";
+  els.addToSession.classList.toggle("in-session", inSession);
+}
+
+function renderSession() {
+  const byId = new Map(state.items.map((it) => [it.id, it]));
+  els.sessionList.innerHTML = "";
+  const n = state.session.length;
+  els.sessionCount.textContent = n ? `${n} ${n === 1 ? "item" : "items"}` : "";
+  els.sessionEmpty.classList.toggle("hidden", n > 0);
+  for (const id of state.session) {
+    els.sessionList.appendChild(renderSessionCard(id, byId.get(id)));
+  }
+}
+
+function renderSessionCard(itemId, item) {
+  const card = document.createElement("div");
+  card.className = "session-card";
+  card.addEventListener("click", () => { if (item) openItemModal(item); });
+
+  const name = document.createElement("div");
+  name.className = "name";
+  name.textContent = item ? item.name : itemId;
+  card.appendChild(name);
+
+  if (item) {
+    const badges = document.createElement("div");
+    badges.className = "badges";
+    if (item.size)     badges.appendChild(tag(item.size, "size"));
+    if (item.grade)    badges.appendChild(tag(`Grade ${item.grade}`, "grade"));
+    if (item.industry) badges.appendChild(tag(item.industry, "industry"));
+    card.appendChild(badges);
+  }
+
+  const rm = document.createElement("button");
+  rm.className = "remove-session";
+  rm.type = "button";
+  rm.title = "Remove from session";
+  rm.innerHTML = "&times;";
+  rm.addEventListener("click", (e) => {
+    e.stopPropagation();
+    removeFromSession(itemId);
+  });
+  card.appendChild(rm);
+  return card;
+}
+
 // ---------- Wire events ----------
 function wireEvents() {
   // Search (debounced)
@@ -1341,6 +1556,16 @@ function wireEvents() {
     applyFilters();
   });
   els.reload.addEventListener("click", fetchItems);
+
+  // Tabs + session
+  els.catalogTabs.addEventListener("click", (e) => {
+    const btn = e.target.closest(".tab");
+    if (btn) switchTab(btn.dataset.tab);
+  });
+  els.clearSession.addEventListener("click", clearSession);
+  els.addToSession.addEventListener("click", () => {
+    if (state.currentItem) toggleSession(state.currentItem.id);
+  });
 
   // Roster
   els.addForm.addEventListener("submit", (e) => {

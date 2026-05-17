@@ -44,31 +44,49 @@
   <main class="layout">
     <section class="catalog panel">
       <div class="panel-head">
-        <h2>Catalog</h2>
+        <div class="tabs" id="catalog-tabs">
+          <button type="button" class="tab active" data-tab="catalog">Catalog</button>
+          <button type="button" class="tab" data-tab="session">Session</button>
+        </div>
         <div class="search-wrap">
           <input id="search" type="search" placeholder="Search items, manufacturers..." autocomplete="off"/>
         </div>
       </div>
 
-      <div class="filters">
-        <div class="filter-group" data-filter="size">
-          <span class="filter-label">Size</span>
-          <div class="chips" id="filter-size"></div>
+      <div id="catalog-view">
+        <div class="filters">
+          <div class="filter-group" data-filter="size">
+            <span class="filter-label">Size</span>
+            <div class="chips" id="filter-size"></div>
+          </div>
+          <div class="filter-group" data-filter="grade">
+            <span class="filter-label">Grade</span>
+            <div class="chips" id="filter-grade"></div>
+          </div>
+          <div class="filter-group" data-filter="industry">
+            <span class="filter-label">Industry</span>
+            <div class="chips" id="filter-industry"></div>
+          </div>
+          <button id="clear-filters" class="ghost-btn small-btn" title="Clear all filters">Clear</button>
         </div>
-        <div class="filter-group" data-filter="grade">
-          <span class="filter-label">Grade</span>
-          <div class="chips" id="filter-grade"></div>
+
+        <div id="tree" class="tree" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state hidden">
+          <p>No items match your filters.</p>
         </div>
-        <div class="filter-group" data-filter="industry">
-          <span class="filter-label">Industry</span>
-          <div class="chips" id="filter-industry"></div>
-        </div>
-        <button id="clear-filters" class="ghost-btn small-btn" title="Clear all filters">Clear</button>
       </div>
 
-      <div id="tree" class="tree" aria-live="polite"></div>
-      <div id="empty-state" class="empty-state hidden">
-        <p>No items match your filters.</p>
+      <div id="session-view" class="hidden">
+        <div class="session-head">
+          <span id="session-count" class="muted small"></span>
+          <span class="spacer"></span>
+          <button id="clear-session" class="ghost-btn small-btn"
+                  title="Remove every item from this session">Clear session</button>
+        </div>
+        <div id="session-list" class="session-list"></div>
+        <div id="session-empty" class="empty-state">
+          <p>No loot in this session yet. Open an item and click <strong>Add to session</strong> to collect it here.</p>
+        </div>
       </div>
     </section>
 
@@ -146,6 +164,9 @@
           </div>
           <h2 id="modal-title">&nbsp;</h2>
           <div id="modal-manufacturer" class="muted small"></div>
+          <div class="modal-actions">
+            <button id="add-to-session-btn" type="button" class="ghost-btn small-btn">+ Add to session</button>
+          </div>
           <p id="modal-description" class="description"></p>
           <div id="modal-stats" class="stats"></div>
 
@@ -153,14 +174,15 @@
             <div class="dist-row">
               <label for="dist-method">Method</label>
               <select id="dist-method">
-                <option value="random">Full random</option>
+                <option value="rolloff">Roll-off (dice)</option>
                 <option value="weighted">Weighted random</option>
                 <option value="least-recent">Least recent</option>
-                <option value="rolloff">Roll-off (dice)</option>
+                <option value="sckp">SCKP (kill points)</option>
               </select>
             </div>
 
             <div id="weight-editor" class="weight-editor hidden"></div>
+            <div id="sckp-editor" class="sckp-editor hidden"></div>
 
             <div class="dist-row">
               <span id="dist-selected-summary" class="muted small">No one selected.</span>
