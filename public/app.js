@@ -109,6 +109,7 @@ const els = {
   selectedCount: $("#selected-count"),
   selectAll: $("#select-all"),
   selectNone: $("#select-none"),
+  addAttendance: $("#add-attendance"),
   // Activity
   activity: $("#activity"),
   clearActivity: $("#clear-activity"),
@@ -445,8 +446,6 @@ function renderPeople() {
     span.textContent = name;
     li.appendChild(span);
 
-    li.appendChild(makePointsControl(name));
-
     const wlCount = (state.wishlists[name] || []).length;
     if (wlCount > 0) {
       const badge = document.createElement("span");
@@ -547,6 +546,20 @@ function setPoints(name, value) {
 }
 function adjustPoints(name, delta) {
   setPoints(name, (state.points[name] ?? 0) + delta);
+}
+// Bulk +1 attendance for every currently-selected roster member.
+function addAttendanceForSelected() {
+  const names = [...state.selected];
+  if (names.length === 0) {
+    toast("Select people first", "error");
+    return;
+  }
+  for (const name of names) {
+    state.points[name] = (state.points[name] ?? 0) + 1;
+  }
+  lsSet(LS.points, state.points);
+  renderPeople();
+  toast(`+1 attendance for ${names.length} ${names.length === 1 ? "person" : "people"}`);
 }
 function removePerson(name) {
   // Removal takes them out of the active roster but DOES NOT erase their
@@ -842,16 +855,23 @@ function closeModal() {
 // Doc-level click handler that runs while the item panel is open.
 // Closes the panel for clicks that aren't inside the panel itself and aren't
 // inside the right-side roster column (which we want to keep usable).
+//
+// We test against the event's composedPath rather than `target.contains(...)`:
+// clicking a roster name or a wishlist chip re-renders that part of the DOM
+// inside its own click handler, which detaches the clicked node before this
+// doc-level handler runs. A detached node fails every `contains()` check, so
+// the panel used to close. composedPath() is captured at dispatch time and
+// still includes the stable ancestor containers (.modal, .side).
 function onDocClickWhileOpen(e) {
   if (els.backdrop.classList.contains("hidden")) return;
-  const t = e.target;
-  // Click inside the panel? keep open.
+  const path = (e.composedPath && e.composedPath()) || [];
   const panel = els.backdrop.querySelector(".modal");
-  if (panel && panel.contains(t)) return;
+  // Click inside the panel? keep open.
+  if (panel && path.includes(panel)) return;
   // Click inside the roster sidebar (roster, person panel, activity)? keep open.
-  if (els.side && els.side.contains(t)) return;
+  if (els.side && path.includes(els.side)) return;
   // Click on another item card? let its own handler reopen us with the new item.
-  if (t.closest && t.closest(".item-card")) return;
+  if (path.some((el) => el.classList && el.classList.contains("item-card"))) return;
   closeModal();
 }
 
@@ -1337,6 +1357,7 @@ function wireEvents() {
     state.selected.clear();
     renderPeople();
   });
+  els.addAttendance.addEventListener("click", addAttendanceForSelected);
   els.clearActivity.addEventListener("click", () => {
     state.activity = [];
     lsSet(LS.activity, state.activity);
