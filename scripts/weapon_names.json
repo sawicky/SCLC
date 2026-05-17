@@ -1,5 +1,5 @@
 {
-  "_comment": "Reviewed ship-weapon names extracted from item descriptions. The catalog's build script falls back to generic names (e.g. 'Esperia S2 Ballistic Cannon') when the source TSV has no clean item name; the real product name lives in the description prose. 'names' maps item id -> corrected name. 'review' lists ids whose name is a best guess and should be verified against the game.",
+  "_comment": "Reviewed ship-weapon names extracted from item descriptions. The catalog's build script falls back to generic names (e.g. 'Esperia S2 Ballistic Cannon') when the source TSV has no clean item name; the real product name lives in the description prose. 'names' maps item id -> corrected name. 'sizes' maps id -> size for items whose size the build script could not derive from the key. 'review' lists ids whose name is still a best guess and should be verified against the game.",
   "names": {
     "ESPR_BallisticCannon_S1": "Deadbolt I",
     "GATS_BallisticCannon_S1": "Tarantula GT-870 Mk1",
@@ -16,7 +16,7 @@
     "ESPR_BallisticCannon_S5": "Deadbolt V",
     "HRST_Nova_BallisticCannon_S5": "Slayer",
     "RSI_BallisticCannon_Meteor_Bespoke": "Leonids",
-    "RSI_Bespoke_BallisticCannon_A": "RSI Polaris Ballistic Cannon",
+    "RSI_Bespoke_BallisticCannon_A": "Maris Cannon",
     "ESPR_BallisticCannon_S6": "Deadbolt VI",
     "HRST_BallisticCannon_S7": "Conqueror-7",
     "BEHR_BallisticCannon_S7_Tiburon": "C-07T",
@@ -31,7 +31,7 @@
     "KRIG_Wolf_BallisticGatling_S4": "Relentless L-21",
     "GLSN_BallisticGatling_S4": "Breakneck",
     "BEHR_BallisticGatling_S5": "AD5B",
-    "BEHR_BallisticGatling_Hornet_Bespoke": "Hornet Mk II Ballistic Gatling",
+    "BEHR_BallisticGatling_Hornet_Bespoke": "Behring TMSB-5",
     "BEHR_BallisticGatling_NOVA_S5": "NV57",
     "APAR_BallisticGatling_S6": "Draugar",
     "BEHR_BallisticGatling_S6": "AD6B",
@@ -81,7 +81,7 @@
     "GMISL_S09_CS_TALN_Argos": "Argos",
     "GMISL_S09_EM_TALN_Seeker": "Seeker",
     "GMISL_S09_IR_TALN_Typhoon": "Typhoon",
-    "HRST_LaserBeam_S10_Bespoke": "Idris-K Laser Beam",
+    "HRST_LaserBeam_S10_Bespoke": "Exodus-10 Laser Beam",
     "HRST_Tiburon_S10_laserbeam": "Supremacy-10T",
     "VNCL_Gen2_LaserBeam_S9": "IGNITER",
     "AMRS_LaserCannon_S1": "Omnisky III",
@@ -136,7 +136,7 @@
     "KLWE_LaserRepeater_S5": "CF-557 Galdereen",
     "RSI_LaserRepeater_S5": "Echion",
     "HRST_LaserRepeater_S6": "Attrition-6",
-    "KLWE_LaserRepeater_S6": "CF-667",
+    "KLWE_LaserRepeater_S6": "CF-667 Mammoth Repeater",
     "VNCL_Gen2_LaserRepeater_S6": "STRIKER",
     "HRST_LaserScattergun_S1": "Dominance-1",
     "HRST_LaserScattergun_S2": "Dominance-2",
@@ -147,7 +147,7 @@
     "KLWE_MassDriver_S2": "Sledge II",
     "KLWE_MassDriver_S3": "Sledge III",
     "Mining_Head_S00_Hofstede": "Hofstede",
-    "Mining_Head_S00_Klein": "Lawson",
+    "Mining_Head_S00_Klein": "Klein-S2 Mining Laser",
     "Mining_Head_S00_Helix": "Helix",
     "MISL_S01_IR_VNCL_Arrow": "Arrow",
     "MISL_S01_IR_BEHR_Marksman": "Marksman",
@@ -223,18 +223,12 @@
     "GRIN_TractorBeam_S1": "Greycat S1 Tractor Beam",
     "GRIN_TractorBeam_004_S3": "SafeTow"
   },
+  "sizes": {
+    "GRIN_TractorBeam_002_shared_UT1": "S1",
+    "GRIN_TractorBeam_002_shared_UT2": "S2"
+  },
   "review": {
-    "RSI_Bespoke_BallisticCannon_A": "Description names no product (RSI Polaris bespoke cannon) - name is a placeholder guess.",
-    "BEHR_BallisticGatling_Hornet_Bespoke": "Description names no product (F7C Hornet Mk II twin gatling) - name is a placeholder guess.",
-    "HRST_LaserBeam_S10_Bespoke": "Description names no product (Idris-K bespoke laser beam) - name is a placeholder guess.",
-    "BEHR_LaserCannon_S1_CleanAir": "'Clean Air' suffix comes from the item key; description is the base M3A text.",
-    "BEHR_LaserCannon_S2_CleanAir": "'Clean Air' suffix comes from the item key; description is the base M4A text.",
-    "BEHR_LaserCannon_S3_CleanAir": "'Clean Air' suffix comes from the item key; description is the base M5A text.",
-    "KLWE_LaserRepeater_S6": "Description only gives the model code 'CF-667'; the in-game name may include an animal (e.g. Mastiff).",
-    "Mining_Head_S00_Klein": "Item key says 'Klein' but the description names the 'Lawson' mining laser - used the description.",
     "Mining_Head_S00_Helix": "No description present; name taken from the item key.",
-    "GRIN_TractorBeam_002_shared_UT1": "Heavy-duty SureGrip variant; the 'UT1' suffix is from the key, not the description.",
-    "GRIN_TractorBeam_002_shared_UT2": "Precision SureGrip variant; the 'UT2' suffix is from the key, not the description.",
     "GRIN_TractorBeam_S1": "Description names no product; kept the generic name."
   }
 }

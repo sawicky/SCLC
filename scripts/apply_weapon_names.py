@@ -21,7 +21,9 @@ TARGETS = [
 
 def main():
     with open(MAP_PATH, encoding="utf-8") as f:
-        names = json.load(f)["names"]
+        overrides = json.load(f)
+    names = overrides["names"]
+    sizes = overrides.get("sizes", {})
 
     for path in TARGETS:
         if not os.path.exists(path):
@@ -42,15 +44,19 @@ def main():
             sys.exit("Mapped ids that are not Ship Weapons in %s: %s"
                      % (path, ", ".join(sorted(unknown))))
 
-        changed = 0
+        changed = sized = 0
         for it in weapons:
             new = names[it["id"]]
             if it.get("name") != new:
                 it["name"] = new
                 changed += 1
+            if it["id"] in sizes and it.get("size") != sizes[it["id"]]:
+                it["size"] = sizes[it["id"]]
+                sized += 1
         with open(path, "w", encoding="utf-8") as f:
             f.write(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
-        print("%s: renamed %d/%d ship weapons" % (path, changed, len(weapons)))
+        print("%s: renamed %d, resized %d (of %d ship weapons)"
+              % (path, changed, sized, len(weapons)))
 
 
 if __name__ == "__main__":

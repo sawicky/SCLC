@@ -7093,7 +7093,7 @@
     },
     {
       "id": "RSI_Bespoke_BallisticCannon_A",
-      "name": "RSI Polaris Ballistic Cannon",
+      "name": "Maris Cannon",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Cannons",
       "size": "S6",
@@ -7468,7 +7468,7 @@
     },
     {
       "id": "BEHR_BallisticGatling_Hornet_Bespoke",
-      "name": "Hornet Mk II Ballistic Gatling",
+      "name": "Behring TMSB-5",
       "category": "Ship Weapons",
       "subcategory": "Ballistic Gatlings",
       "size": "S5",
@@ -8612,7 +8612,7 @@
     },
     {
       "id": "HRST_LaserBeam_S10_Bespoke",
-      "name": "Idris-K Laser Beam",
+      "name": "Exodus-10 Laser Beam",
       "category": "Ship Weapons",
       "subcategory": "Laser Beams",
       "size": "S10",
@@ -10138,7 +10138,7 @@
     },
     {
       "id": "KLWE_LaserRepeater_S6",
-      "name": "CF-667",
+      "name": "CF-667 Mammoth Repeater",
       "category": "Ship Weapons",
       "subcategory": "Laser Repeaters",
       "size": "S6",
@@ -10431,7 +10431,7 @@
     },
     {
       "id": "Mining_Head_S00_Klein",
-      "name": "Lawson",
+      "name": "Klein-S2 Mining Laser",
       "category": "Ship Weapons",
       "subcategory": "Mining Lasers",
       "size": "S0",
@@ -11992,7 +11992,8 @@
         "Signatures": "EM: 0",
         "IR": "0",
         "Overheat Temp": "450K"
-      }
+      },
+      "size": "S1"
     },
     {
       "id": "GRIN_TractorBeam_002_shared_UT2",
@@ -12016,7 +12017,8 @@
         "Signatures": "EM: 0",
         "IR": "0",
         "Overheat Temp": "450K"
-      }
+      },
+      "size": "S2"
     },
     {
       "id": "ARGO_TractorBeam_S1_Cargo",
