@@ -1649,6 +1649,27 @@ function wireEvents() {
   els.ocrConfirm.addEventListener("click", confirmOcrAdd);
 }
 
+// ---------- Version footer ----------
+// version.json is written at build time by scripts/gen-version.js. If it is
+// missing (e.g. a static deploy with no build step) the footer stays hidden.
+async function renderVersionFooter() {
+  const el = document.getElementById("version-footer");
+  if (!el) return;
+  try {
+    const res = await fetch("./version.json?t=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const v = await res.json();
+    if (!v.commit) throw new Error("no commit");
+    el.textContent = v.commit;
+    el.href = "https://github.com/sawicky/SCLC/commit/" + v.commit;
+    el.title = [v.ref, v.builtAt ? "built " + new Date(v.builtAt).toLocaleString() : ""]
+      .filter(Boolean).join(" • ");
+    el.classList.remove("hidden");
+  } catch (_) {
+    el.classList.add("hidden");
+  }
+}
+
 // ---------- Init ----------
 function init() {
   loadPersistence();
@@ -1657,5 +1678,6 @@ function init() {
   renderPersonDetail();
   wireEvents();
   fetchItems();
+  renderVersionFooter();
 }
 init();

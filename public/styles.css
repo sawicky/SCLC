@@ -1243,6 +1243,22 @@ body {
   to   { opacity: 1; transform: translate(-50%, 0); }
 }
 
+/* ---------- Version footer ---------- */
+.version-footer {
+  position: fixed;
+  bottom: 5px;
+  right: 9px;
+  z-index: 40;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-faint);
+  text-decoration: none;
+  opacity: 0.55;
+  transition: opacity var(--transition), color var(--transition);
+}
+.version-footer:hover { opacity: 1; color: var(--text-muted); }
+
 /* ---------- Scrollbar polish ---------- */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
