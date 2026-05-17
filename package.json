@@ -4,10 +4,11 @@
   "description": "SCLC - Star Citizen Loot Council. Static-deployable web app for fair Star Citizen loot distribution.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node scripts/gen-version.js && node server.js",
+    "dev": "node scripts/gen-version.js && node server.js",
+    "build": "node scripts/gen-version.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "express": "^4.19.2"
   }
 }

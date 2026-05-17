@@ -1243,6 +1243,77 @@ body {
   to   { opacity: 1; transform: translate(-50%, 0); }
 }
 
+/* ---------- Recovery panel (shown if startup fails) ---------- */
+.recovery {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 4, 12, 0.92);
+  backdrop-filter: blur(8px);
+}
+.recovery-box {
+  max-width: 460px;
+  padding: 22px 24px;
+  background: linear-gradient(180deg, rgba(20,28,56,0.96), rgba(10,14,30,0.96));
+  border: 1px solid var(--panel-border-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+.recovery-box h2 { margin: 0 0 8px; font-size: 18px; color: var(--text); }
+.recovery-box p { margin: 0; color: var(--text-muted); line-height: 1.5; font-size: 13px; }
+.recovery-err {
+  max-height: 120px;
+  overflow: auto;
+  padding: 8px 10px;
+  margin: 12px 0 0;
+  font-size: 11px;
+  color: var(--danger);
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-sm);
+  white-space: pre-wrap;
+}
+.recovery-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* ---------- Version footer ---------- */
+.version-footer {
+  position: fixed;
+  bottom: 5px;
+  right: 9px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--text-faint);
+}
+#version-commit {
+  opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+}
+.vf-reset {
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--text-faint);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity var(--transition), color var(--transition);
+}
+.vf-reset:hover { opacity: 1; color: var(--text-muted); }
+
 /* ---------- Scrollbar polish ---------- */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
