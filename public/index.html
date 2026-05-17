@@ -165,7 +165,12 @@
           <h2 id="modal-title">&nbsp;</h2>
           <div id="modal-manufacturer" class="muted small"></div>
           <div class="modal-actions">
+            <label class="qty-field">Qty
+              <input id="session-qty" type="number" min="1" step="1" value="1" />
+            </label>
             <button id="add-to-session-btn" type="button" class="ghost-btn small-btn">+ Add to session</button>
+            <span id="session-status" class="muted small hidden"></span>
+            <button id="remove-from-session-btn" type="button" class="ghost-btn small-btn hidden">Remove</button>
           </div>
           <p id="modal-description" class="description"></p>
           <div id="modal-stats" class="stats"></div>

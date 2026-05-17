@@ -31,8 +31,8 @@ const state = {
   // can still cap for readability without losing per-person history).
   winsByPerson: {},   // name -> [{ts, itemId, item, method}]
 
-  // Session: items collected this loot session, distributed later.
-  session: [],        // array of itemIds
+  // Session: loot collected this session, distributed later.
+  session: [],        // array of { id, qty }
   // SCKP: transient per-person point spend for the current roll (not persisted).
   sckpSpend: {},      // name -> integer
 
@@ -90,7 +90,15 @@ function loadPersistence() {
   state.focusedPerson = lsGet(LS.focused, null);
   state.points = lsObject(LS.points);
   state.winsByPerson = lsObject(LS.winsByPerson);
-  state.session = lsArray(LS.session);
+  // Session entries are { id, qty }. Migrate the older flat-id-array format.
+  state.session = lsArray(LS.session).map((e) => {
+    if (typeof e === "string") return { id: e, qty: 1 };
+    if (e && typeof e === "object" && e.id) {
+      const q = parseInt(e.qty, 10);
+      return { id: e.id, qty: Number.isFinite(q) && q > 0 ? q : 1 };
+    }
+    return null;
+  }).filter(Boolean);
 
   // Migration: if winsByPerson is empty but activity has entries, seed it
   // (so users upgrading from an earlier version keep their history).
@@ -192,6 +200,9 @@ const els = {
   weightEditor: $("#weight-editor"),
   sckpEditor: $("#sckp-editor"),
   addToSession: $("#add-to-session-btn"),
+  removeFromSession: $("#remove-from-session-btn"),
+  sessionQty: $("#session-qty"),
+  sessionStatus: $("#session-status"),
   distSummary: $("#dist-selected-summary"),
   distribute: $("#distribute-btn"),
   distResult: $("#dist-result"),
@@ -869,7 +880,8 @@ function openItemModal(item) {
 
   updateSelectedSummary();
   renderWishlistChips();
-  updateAddToSessionBtn();
+  els.sessionQty.value = "1";
+  updateSessionControls();
 
   els.backdrop.classList.remove("hidden");
   els.backdrop.setAttribute("aria-hidden", "false");
@@ -1210,6 +1222,9 @@ function recordWin(winner, item, method) {
 
   renderActivity();
   renderPersonDetail();
+
+  // Distributed loot is consumed from the session, if it was tracked there.
+  consumeFromSession(item.id);
 }
 
 // ---------- Activity ----------
@@ -1463,18 +1478,32 @@ function switchTab(tab) {
   if (onSession) renderSession();
 }
 
-function addToSession(itemId) {
-  if (state.session.includes(itemId)) return;
-  state.session.push(itemId);
+// Add qty units of an item to the session, stacking onto any existing entry.
+function addToSession(itemId, qty) {
+  qty = Math.max(1, Math.round(qty) || 1);
+  const entry = state.session.find((e) => e.id === itemId);
+  if (entry) entry.qty += qty;
+  else state.session.push({ id: itemId, qty });
   lsSet(LS.session, state.session);
   if (state.activeTab === "session") renderSession();
 }
 
 function removeFromSession(itemId) {
-  state.session = state.session.filter((id) => id !== itemId);
+  state.session = state.session.filter((e) => e.id !== itemId);
   lsSet(LS.session, state.session);
   if (state.activeTab === "session") renderSession();
-  updateAddToSessionBtn();
+  updateSessionControls();
+}
+
+// Consume one unit after an item is distributed; drop the entry at zero.
+function consumeFromSession(itemId) {
+  const entry = state.session.find((e) => e.id === itemId);
+  if (!entry) return;
+  entry.qty -= 1;
+  if (entry.qty <= 0) state.session = state.session.filter((e) => e.id !== itemId);
+  lsSet(LS.session, state.session);
+  if (state.activeTab === "session") renderSession();
+  updateSessionControls();
 }
 
 function clearSession() {
@@ -1482,59 +1511,57 @@ function clearSession() {
   state.session = [];
   lsSet(LS.session, state.session);
   renderSession();
-  updateAddToSessionBtn();
+  updateSessionControls();
   toast("Session cleared");
 }
 
-// Toggle the currently-open item in/out of the session.
-function toggleSession(itemId) {
-  if (state.session.includes(itemId)) {
-    removeFromSession(itemId);
-    toast("Removed from session");
-  } else {
-    addToSession(itemId);
-    toast("Added to session");
-  }
-  updateAddToSessionBtn();
-}
-
-// Keep the modal's add/remove button label in sync with session membership.
-function updateAddToSessionBtn() {
+// Keep the modal's session controls in sync with the open item.
+function updateSessionControls() {
   if (!state.currentItem) return;
-  const inSession = state.session.includes(state.currentItem.id);
-  els.addToSession.textContent = inSession ? "✓ In session — remove" : "+ Add to session";
-  els.addToSession.classList.toggle("in-session", inSession);
+  const entry = state.session.find((e) => e.id === state.currentItem.id);
+  if (entry) {
+    els.sessionStatus.textContent = `In session ×${entry.qty}`;
+    els.sessionStatus.classList.remove("hidden");
+    els.removeFromSession.classList.remove("hidden");
+  } else {
+    els.sessionStatus.classList.add("hidden");
+    els.removeFromSession.classList.add("hidden");
+  }
 }
 
 function renderSession() {
   const byId = new Map(state.items.map((it) => [it.id, it]));
   els.sessionList.innerHTML = "";
-  const n = state.session.length;
-  els.sessionCount.textContent = n ? `${n} ${n === 1 ? "item" : "items"}` : "";
-  els.sessionEmpty.classList.toggle("hidden", n > 0);
-  for (const id of state.session) {
-    els.sessionList.appendChild(renderSessionCard(id, byId.get(id)));
+  const units = state.session.reduce((n, e) => n + e.qty, 0);
+  els.sessionCount.textContent = units ? `${units} ${units === 1 ? "item" : "items"}` : "";
+  els.sessionEmpty.classList.toggle("hidden", state.session.length > 0);
+  for (const entry of state.session) {
+    els.sessionList.appendChild(renderSessionCard(entry, byId.get(entry.id)));
   }
 }
 
-function renderSessionCard(itemId, item) {
+function renderSessionCard(entry, item) {
   const card = document.createElement("div");
   card.className = "session-card";
   card.addEventListener("click", () => { if (item) openItemModal(item); });
 
   const name = document.createElement("div");
   name.className = "name";
-  name.textContent = item ? item.name : itemId;
+  name.textContent = item ? item.name : entry.id;
   card.appendChild(name);
 
+  const badges = document.createElement("div");
+  badges.className = "badges";
+  const qty = document.createElement("span");
+  qty.className = "qty-pill";
+  qty.textContent = "×" + entry.qty;
+  badges.appendChild(qty);
   if (item) {
-    const badges = document.createElement("div");
-    badges.className = "badges";
     if (item.size)     badges.appendChild(tag(item.size, "size"));
     if (item.grade)    badges.appendChild(tag(`Grade ${item.grade}`, "grade"));
     if (item.industry) badges.appendChild(tag(item.industry, "industry"));
-    card.appendChild(badges);
   }
+  card.appendChild(badges);
 
   const rm = document.createElement("button");
   rm.className = "remove-session";
@@ -1543,7 +1570,7 @@ function renderSessionCard(itemId, item) {
   rm.innerHTML = "&times;";
   rm.addEventListener("click", (e) => {
     e.stopPropagation();
-    removeFromSession(itemId);
+    removeFromSession(entry.id);
   });
   card.appendChild(rm);
   return card;
@@ -1579,7 +1606,17 @@ function wireEvents() {
   });
   els.clearSession.addEventListener("click", clearSession);
   els.addToSession.addEventListener("click", () => {
-    if (state.currentItem) toggleSession(state.currentItem.id);
+    if (!state.currentItem) return;
+    const qty = Math.max(1, parseInt(els.sessionQty.value, 10) || 1);
+    addToSession(state.currentItem.id, qty);
+    updateSessionControls();
+    toast(qty > 1 ? `Added ${qty} to session` : "Added to session");
+    els.sessionQty.value = "1";
+  });
+  els.removeFromSession.addEventListener("click", () => {
+    if (!state.currentItem) return;
+    removeFromSession(state.currentItem.id);
+    toast("Removed from session");
   });
 
   // Roster

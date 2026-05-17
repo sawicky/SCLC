@@ -1154,7 +1154,19 @@ body {
   box-shadow: 0 8px 22px rgba(0,0,0,0.5), 0 0 18px rgba(77, 255, 234, 0.12);
 }
 .session-card .name { font-weight: 600; font-size: 13px; padding-right: 18px; }
-.session-card .badges { display: flex; flex-wrap: wrap; gap: 4px; }
+.session-card .badges { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.session-card .qty-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  color: var(--accent);
+  background: rgba(77, 255, 234, 0.1);
+  border: 1px solid rgba(77, 255, 234, 0.3);
+}
 .session-card .remove-session {
   position: absolute;
   top: 5px; right: 5px;
@@ -1180,14 +1192,33 @@ body {
 /* ---------- Item modal extras ---------- */
 .modal-actions {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
   margin: 10px 0 2px;
 }
-#add-to-session-btn.in-session {
-  color: var(--accent-warm);
-  border-color: rgba(255, 159, 67, 0.5);
-  background: rgba(255, 159, 67, 0.1);
+.qty-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
 }
+.qty-field input {
+  width: 50px;
+  padding: 5px 6px;
+  font: inherit;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--panel-border);
+  color: var(--text);
+  border-radius: 4px;
+  text-align: right;
+  outline: none;
+}
+.qty-field input:focus { border-color: var(--accent); }
+#session-status { color: var(--accent-warm); }
 
 /* ---------- SCKP (kill points) editor ---------- */
 .sckp-editor {
